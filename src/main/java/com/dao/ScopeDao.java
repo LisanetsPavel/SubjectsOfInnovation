@@ -19,4 +19,5 @@ public interface ScopeDao {
 
     void updateScope(Scope scope);
 
+    Scope getScopeByName(String name);
 }

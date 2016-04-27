@@ -30,4 +30,10 @@ public class MainController {
         return "app/index.html";
     }
 
+
+    @RequestMapping(value = "/img", method = RequestMethod.GET)
+    public String img(){
+        return "app/index.html";
+    }
+
 }

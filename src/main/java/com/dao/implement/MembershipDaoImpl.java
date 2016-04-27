@@ -7,6 +7,7 @@ import com.entity.Organization;
 import com.util.CloseableSession;
 import com.util.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -32,5 +33,11 @@ public class MembershipDaoImpl extends GenericDao implements MembershipDao {
     @Override
     public void updateMembership(Membership membership) {
         update(membership);
+    }
+
+    @Override
+    public Membership getMembershipByName(String name){
+
+        return (Membership)  getByName(name, Membership.class);
     }
 }

@@ -1,11 +1,13 @@
 package com;
 
+import com.dao.MembershipDao;
 import com.dao.OrganizationDao;
 import com.dao.PhaseDao;
-import com.dao.implement.OrganizationDaoImpl;
-import com.dao.implement.PhaseDaoImpl;
-import com.dao.implement.SubjectDaoImpl;
-import com.entity.Subject;
+import com.dao.implement.*;
+import com.entity.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by pc8 on 14.04.16.
@@ -19,33 +21,54 @@ public class App {
 //
 //        Set<Phase> phases = new HashSet<Phase>();
 //        Phase phase = new Phase();
+//        new PhaseDaoImpl().setPhase(phase);
 //        phase.setName("PhaseTest");
 //        phases.add(phase);
 //
-//        session.save(phase);
-//
 //        Set<Scope> scopes = new HashSet<Scope>();
 //        Scope scope = new Scope();
+//        new ScopeDaoImpl().setScope(scope);
 //        scope.setName("ScopeTest");
 //        scopes.add(scope);
 //
-//        session.save(scope);
-//
 //        Membership membership = new Membership();
 //        membership.setName("dddd");
+//        new MembershipDaoImpl().setMembership(membership);
 //
-//        session.save(membership);
-
-
+//
+//
 //        Organization organization = new Organization();
-//        organization.setFullName("NLUUU");
-//        organization.setEmail("hhh@com");
-        OrganizationDao organizationDao = new OrganizationDaoImpl();
+//        organization.setFullName("CNLUUU");
+//        organization.setEmail("chhh@com");
+//        OrganizationDao organizationDao = new OrganizationDaoImpl();
+//
+//        organization.setScopes(scopes);
+//        organization.setPhases(phases);
+//        organization.setMembership(membership);
+//        organizationDao.setOrganization(organization);
+
+        System.out.println(new ScopeDaoImpl().getScopeById(new Long(12)).getOrganizations());
+
+
+ //       organizationDao.setOrganization(organization);
+//
+//        Membership membership = new Membership();
+//        membership.setName("Membership");
+//        MembershipDao membershipDao = new MembershipDaoImpl();
+//        membershipDao.setMembership(membership);
+//
+//        organization.setMembership(membership);
+//
 //        organizationDao.setOrganization(organization);
 //
-//     Membership membership = new Membership();
-//        membership.setId(new Long(14));
-     // List<Organization> organizations = organizationDao.getOrganizationsByMembership(new Long(14));
+//        System.out.println(organizationDao.getAllOrganizations());
+
+      //  MembershipDao membershipDao = new MembershipDaoImpl();
+        System.out.println("App : " +  new MembershipDaoImpl().getMembershipByName("Membership1"));
+
+
+
+        // List<Organization> organizations = organizationDao.getOrganizationsByMembership(new Long(14));
         //System.out.println(organizations);
 
 
@@ -56,7 +79,7 @@ public class App {
 //        session.save(organization);
 //        session.getTransaction().commit();
 
-        PhaseDao phaseDao = new PhaseDaoImpl();
+//        PhaseDao phaseDao = new PhaseDaoImpl();
 
 
 

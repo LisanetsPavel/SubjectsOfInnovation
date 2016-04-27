@@ -248,7 +248,7 @@ public class Organization implements Comparable {
                 ", subject=" + subject +
                 ", location=" + location +
                 ", membership=" + membership +
-                "scopes=" + scopes.toString() +
+
 
                 '}';
     }
@@ -270,61 +270,5 @@ public class Organization implements Comparable {
        return 0;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Organization)) return false;
 
-        Organization that = (Organization) o;
-
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (fullName != null ? !fullName.equals(that.fullName) : that.fullName != null) return false;
-        if (shortName != null ? !shortName.equals(that.shortName) : that.shortName != null) return false;
-        if (fullNameEng != null ? !fullNameEng.equals(that.fullNameEng) : that.fullNameEng != null) return false;
-        if (form != null ? !form.equals(that.form) : that.form != null) return false;
-        if (subordination != null ? !subordination.equals(that.subordination) : that.subordination != null)
-            return false;
-        if (projects != null ? !projects.equals(that.projects) : that.projects != null) return false;
-        if (code != null ? !code.equals(that.code) : that.code != null) return false;
-        if (legalAdress != null ? !legalAdress.equals(that.legalAdress) : that.legalAdress != null) return false;
-        if (factualAdress != null ? !factualAdress.equals(that.factualAdress) : that.factualAdress != null)
-            return false;
-        if (phoneNumber != null ? !phoneNumber.equals(that.phoneNumber) : that.phoneNumber != null) return false;
-        if (site != null ? !site.equals(that.site) : that.site != null) return false;
-        if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (nameOfDirector != null ? !nameOfDirector.equals(that.nameOfDirector) : that.nameOfDirector != null)
-            return false;
-        if (founder != null ? !founder.equals(that.founder) : that.founder != null) return false;
-        if (subject != null ? !subject.equals(that.subject) : that.subject != null) return false;
-        if (location != null ? !location.equals(that.location) : that.location != null) return false;
-        if (membership != null ? !membership.equals(that.membership) : that.membership != null) return false;
-        if (scopes != null ? !scopes.equals(that.scopes) : that.scopes != null) return false;
-        return !(phases != null ? !phases.equals(that.phases) : that.phases != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (fullName != null ? fullName.hashCode() : 0);
-        result = 31 * result + (shortName != null ? shortName.hashCode() : 0);
-        result = 31 * result + (fullNameEng != null ? fullNameEng.hashCode() : 0);
-        result = 31 * result + (form != null ? form.hashCode() : 0);
-        result = 31 * result + (subordination != null ? subordination.hashCode() : 0);
-        result = 31 * result + (projects != null ? projects.hashCode() : 0);
-        result = 31 * result + (code != null ? code.hashCode() : 0);
-        result = 31 * result + (legalAdress != null ? legalAdress.hashCode() : 0);
-        result = 31 * result + (factualAdress != null ? factualAdress.hashCode() : 0);
-        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
-        result = 31 * result + (site != null ? site.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (nameOfDirector != null ? nameOfDirector.hashCode() : 0);
-        result = 31 * result + (founder != null ? founder.hashCode() : 0);
-        result = 31 * result + (subject != null ? subject.hashCode() : 0);
-        result = 31 * result + (location != null ? location.hashCode() : 0);
-        result = 31 * result + (membership != null ? membership.hashCode() : 0);
-        result = 31 * result + (scopes != null ? scopes.hashCode() : 0);
-        result = 31 * result + (phases != null ? phases.hashCode() : 0);
-        return result;
-    }
 }

@@ -38,7 +38,7 @@
     </filter>
     <filter-mapping>
         <filter-name>TestFilter</filter-name>
-        <url-pattern>/admin</url-pattern>
+        <url-pattern>/img</url-pattern>
     </filter-mapping>
 
 </web-app>

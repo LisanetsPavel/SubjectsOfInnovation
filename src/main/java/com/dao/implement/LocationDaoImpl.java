@@ -32,4 +32,9 @@ public class LocationDaoImpl extends GenericDao implements LocationDao {
     public void updateLocation(Location location) {
         update(location);
     }
+
+    @Override
+    public Location getLocationByName(String name) {
+        return (Location) getByName(name, Location.class);
+    }
 }

@@ -1,8 +1,10 @@
 package com.dao.implement;
 
+import com.entity.Membership;
 import com.util.CloseableSession;
 import com.util.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -48,4 +50,13 @@ public class GenericDao<T>  {
 
         }
     }
+
+    protected T getByName(String name, Class clazz){
+        try (CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
+            Session session = closeableSession.getSession();
+            return  (T) session.createCriteria(clazz).add(Restrictions.like("name", name)).uniqueResult();
+
+        }
+    }
+
 }

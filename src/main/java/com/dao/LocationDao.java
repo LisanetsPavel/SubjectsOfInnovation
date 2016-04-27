@@ -16,4 +16,6 @@ public interface LocationDao {
     void deleteLocation(Location location);
 
     void updateLocation(Location location);
+
+    Location getLocationByName(String name);
 }

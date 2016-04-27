@@ -19,4 +19,5 @@ public interface PhaseDao {
 
     void updatePhase(Phase phase);
 
+    Phase getPhaseByName(String name);
 }

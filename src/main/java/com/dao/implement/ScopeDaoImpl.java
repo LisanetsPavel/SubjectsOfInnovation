@@ -31,7 +31,13 @@ public class ScopeDaoImpl extends GenericDao implements ScopeDao {
 
     @Override
     public void updateScope(Scope scope) {
-
         update(scope);
     }
+
+    @Override
+    public Scope getScopeByName(String name) {
+        return (Scope) getByName(name, Scope.class);
+    }
+
+
 }
