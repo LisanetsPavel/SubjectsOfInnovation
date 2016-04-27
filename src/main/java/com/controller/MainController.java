@@ -18,14 +18,14 @@ public class MainController {
     @Autowired
     OrganizationService organizationService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     @ResponseBody
     public String hello(){
 
         return organizationService.getAllOrganizations();
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
         return "app/index.html";
     }
