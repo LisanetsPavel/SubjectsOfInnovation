@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class Location implements Comparable {
 
     private Long id;
     private String name;
+    @JsonIgnore
     private Set<Organization> organizations;
 
     @Id
@@ -36,10 +39,12 @@ public class Location implements Comparable {
     }
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "location")
+    @JsonIgnore
     public Set<Organization> getOrganizations() {
         return organizations;
     }
 
+    @JsonIgnore
     public void setOrganizations(Set<Organization> organizations) {
         this.organizations = organizations;
     }

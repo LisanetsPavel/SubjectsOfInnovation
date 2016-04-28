@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -28,6 +30,8 @@ public class Organization implements Comparable {
 
     private Subject subject;
     private Location location;
+
+
     private Membership membership;
 
     private Set<Scope> scopes;
@@ -198,6 +202,7 @@ public class Organization implements Comparable {
         return membership;
     }
 
+    @JoinColumn
     public void setMembership(Membership membership) {
         this.membership = membership;
     }
@@ -245,9 +250,9 @@ public class Organization implements Comparable {
                 ", email='" + email + '\'' +
                 ", nameOfDirector='" + nameOfDirector + '\'' +
                 ", founder='" + founder + '\'' +
-                ", subject=" + subject +
-                ", location=" + location +
-                ", membership=" + membership +
+//                ", subject=" + subject +
+//                ", location=" + location +
+//                ", membership=" + membership +
 
 
                 '}';
