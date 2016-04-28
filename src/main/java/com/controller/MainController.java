@@ -30,4 +30,15 @@ public class MainController {
         return "app/index.html";
     }
 
+    /*@RequestMapping(value = "/getOrg", method = RequestMethod.GET)
+    public String getOrg(){
+
+    };*/
+
+
+    @RequestMapping(value = "/img", method = RequestMethod.GET)
+    public String img(){
+        return "app/index.html";
+    }
+
 }

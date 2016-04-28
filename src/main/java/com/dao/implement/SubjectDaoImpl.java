@@ -28,4 +28,9 @@ public class SubjectDaoImpl extends GenericDao implements SubjectDao {
     public void updateSubject(Subject subject) {
         update(subject);
     }
+
+    @Override
+    public Subject getSubjectByName(String name) {
+        return (Subject) getByName(name, Subject.class);
+    }
 }

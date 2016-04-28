@@ -18,4 +18,5 @@ public interface MembershipDao {
 
     void updateMembership(Membership membership);
 
+    Membership getMembershipByName(String name);
 }

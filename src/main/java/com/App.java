@@ -1,11 +1,13 @@
 package com;
 
+import com.dao.MembershipDao;
 import com.dao.OrganizationDao;
 import com.dao.PhaseDao;
-import com.dao.implement.OrganizationDaoImpl;
-import com.dao.implement.PhaseDaoImpl;
-import com.dao.implement.SubjectDaoImpl;
-import com.entity.Subject;
+import com.dao.implement.*;
+import com.entity.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by pc8 on 14.04.16.
@@ -13,52 +15,42 @@ import com.entity.Subject;
 public class App {
     public static void main(String[] args) {
 
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//
-//        session.beginTransaction();
-//
-//        Set<Phase> phases = new HashSet<Phase>();
-//        Phase phase = new Phase();
-//        phase.setName("PhaseTest");
-//        phases.add(phase);
-//
-//        session.save(phase);
-//
-//        Set<Scope> scopes = new HashSet<Scope>();
-//        Scope scope = new Scope();
-//        scope.setName("ScopeTest");
-//        scopes.add(scope);
-//
-//        session.save(scope);
-//
-//        Membership membership = new Membership();
-//        membership.setName("dddd");
-//
-//        session.save(membership);
+     Set<Scope> scopes = new HashSet<>();
+     Scope scope = new Scope();
+     scope.setName("FourthScope");
+     new ScopeDaoImpl().setScope(scope);
+     scopes.add(scope);
+
+     Set<Phase> phases = new HashSet<>();
+     Phase phase = new Phase();
+     phase.setName("FourthPhase");
+     new PhaseDaoImpl().setPhase(phase);
+     phases.add(phase);
 
 
-//        Organization organization = new Organization();
-//        organization.setFullName("NLUUU");
-//        organization.setEmail("hhh@com");
-        OrganizationDao organizationDao = new OrganizationDaoImpl();
-//        organizationDao.setOrganization(organization);
-//
-//     Membership membership = new Membership();
-//        membership.setId(new Long(14));
-     // List<Organization> organizations = organizationDao.getOrganizationsByMembership(new Long(14));
-        //System.out.println(organizations);
+     Subject subject = new Subject();
+     subject.setName("FourthSubject");
+     new SubjectDaoImpl().setSubject(subject);
 
+     Location location = new Location();
+     location.setName("Fourthlocation");
+     new LocationDaoImpl().setLocation(location);
 
+     Membership membership = new Membership();
+     membership.setName("FourthMembership");
+     new MembershipDaoImpl().setMembership(membership);
 
-//        organization.setPhases(phases);
-//        organization.setScopes(scopes);
-//        organization.setMembership(membership);
-//        session.save(organization);
-//        session.getTransaction().commit();
+     Organization organization = new Organization();
+     organization.setFullName("FourthOrg");
+     organization.setEmail("email@TFourth");
+     organization.setLocation(location);
+     organization.setMembership(membership);
+     organization.setSubject(subject);
+     organization.setPhases(phases);
+     organization.setScopes(scopes);
 
-        PhaseDao phaseDao = new PhaseDaoImpl();
-
-
+     OrganizationDao organizationDao = new OrganizationDaoImpl();
+        organizationDao.setOrganization(organization);
 
     }
 }

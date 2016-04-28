@@ -29,4 +29,9 @@ public class PhaseDaoImpl extends GenericDao implements PhaseDao {
     public void updatePhase(Phase phase) {
         update(phase);
     }
+
+    @Override
+    public Phase getPhaseByName(String name) {
+        return (Phase) getByName(name, Phase.class);
+    }
 }

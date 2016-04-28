@@ -117,8 +117,8 @@ public class Subject implements Comparable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", url='" + url + '\'' +
-                ", organizations=" + organizations +
-                ", memberships=" + memberships +
+                /*", organizations=" + organizations +
+                ", memberships=" + memberships +*/
                 '}';
     }
 }

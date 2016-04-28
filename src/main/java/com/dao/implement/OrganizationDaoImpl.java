@@ -7,6 +7,7 @@ import com.util.HibernateUtil;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -25,6 +26,15 @@ public class OrganizationDaoImpl extends GenericDao implements OrganizationDao {
         try (CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
             Session session = closeableSession.getSession();
             return  (Organization) session.get(Organization.class, organizationId);
+
+        }
+    }
+
+    @Override
+    public List<Organization> getAllOrganizations() {
+        try (CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
+            Session session = closeableSession.getSession();
+            return  (List<Organization>) session.createCriteria(Organization.class).list();
 
         }
     }
