@@ -49,8 +49,7 @@ public class App {
 
         System.out.println(new ScopeDaoImpl().getScopeById(new Long(12)).getOrganizations());
 
-
- //       organizationDao.setOrganization(organization);
+        //       organizationDao.setOrganization(organization);
 //
 //        Membership membership = new Membership();
 //        membership.setName("Membership");
