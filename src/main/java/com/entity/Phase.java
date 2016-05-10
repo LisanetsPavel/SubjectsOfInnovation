@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class Phase {
 
     private Long id;
     private String name;
+    @JsonIgnore
     private Set<Organization> organizations;
 
     @Id
@@ -36,10 +39,12 @@ public class Phase {
     }
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "phases")
+    @JsonIgnore
     public Set<Organization> getOrganizations() {
         return organizations;
     }
 
+    @JsonIgnore
     public void setOrganizations(Set<Organization> organizations) {
         this.organizations = organizations;
     }

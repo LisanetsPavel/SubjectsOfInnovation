@@ -10,9 +10,16 @@ import com.service.OrganizationService;
 public class Sandbox {
 
     public static void main(String[] args) {
-        OrganizationDao organizationService = new OrganizationDaoImpl();
+        char a = 'd';
+        long b =  92233720368547l;
 
-        System.out.println(organizationService.getAllOrganizations());
+        int c = (int) b;
+        String s = String.valueOf(a);
+
+        System.out.println("a = " + a + " c " + c + " s = " + b);
+
+        Integer int2 = new Integer (15);
+
     }
 
 }

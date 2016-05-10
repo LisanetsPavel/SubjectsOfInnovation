@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
 
-    @ResponseBody
+   /* @ResponseBody
     @RequestMapping(value="/admin", method = RequestMethod.GET)
     public String helloAdmin(  ){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println("Hello admin " + user.getUsername() );
         return "Hello Admin!!! <a href ='/j_spring_security_logout'> logout  </a>";
-    }
+    }*/
 
     @RequestMapping(value="login", method = RequestMethod.GET)
      public String login() {

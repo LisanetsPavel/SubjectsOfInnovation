@@ -18,7 +18,7 @@
 <div class="container">
 
 <div class="col-md-6">
-
+      <h1>Критерии поиска</h1>
     <div class="input-group" id="search">
         <input type="text" class="form-control" ng-model = "zorro" placeholder="имя организации...">
       <span class="input-group-btn">
@@ -76,10 +76,10 @@
 
     <div class="col-md-6">
 
-        <button type="button" class="btn-danger btn-lg" ng-click="loadOrgans()">LOHI</button>
+        <h1>Список огранизаций </h1>
 
-        <ul ng-repeat = "organization in organizations | filter : zorro">
-            <li > Full {{organization.fullName }} </li>
+        <ul class="list-group" ng-repeat = "organization in organizations | filter : zorro">
+            <li class="list-group-item" > Full {{organization.fullName }} </li>
         </ul>
 
     </div>

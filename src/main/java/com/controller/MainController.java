@@ -4,10 +4,9 @@ import com.service.OrganizationService;
 import com.service.SearchService;
 import com.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by pc8 on 19.04.16.
@@ -30,10 +29,17 @@ public class MainController {
         return "app/index.html";
     }
 
-    /*@RequestMapping(value = "/getOrg", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String getOrg(){
+        return "app/admin.html";
+    }
 
-    };*/
+    @RequestMapping(value = "/sendData", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void setData(@RequestParam(value = "param") String param){
+        System.out.println("data   ---- " + param);
+
+    }
 
 
     @RequestMapping(value = "/img", method = RequestMethod.GET)

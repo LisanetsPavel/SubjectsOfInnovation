@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AdminModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+
+    <meta charset="UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <link rel="stylesheet" href="/app/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/app/css/style.css">
+</head>
+<body>
+
+<div  ng-controller="HttpGetController">
+    <p>Data: <input type="text" name="param" ng-model="param" required /></p>
+    <p>Data: <input type="text" name="param1" ng-model="param1" required /></p>
+    <p>Data: <input type="text" name="param2" ng-model="param2" required /></p>
+    <p>Data: <input type="text" name="param3" ng-model="param3" required /></p>
+
+    <button ng-click="SendData()">Submit</button>
+    <hr />
+    <!--{{ PostDataResponse }}-->
+    {{ param }}  loh {{ param1 }} pidr  {{ param1 }} 123 {{ param2 }}
+</div>
+
+
+
+<script src="/app/js/angular/adminApp.js"></script>
+</body>
+</html>

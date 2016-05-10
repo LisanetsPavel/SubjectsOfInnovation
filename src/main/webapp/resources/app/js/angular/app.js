@@ -6,6 +6,8 @@
 (function(){
     var app = angular.module('InnoModule',[]);
 
+
+
     app.controller('OrganizationController',
         ['$scope', '$http', function($scope, $http){
             $scope.organizations = [];
@@ -13,6 +15,21 @@
                 $scope.organizations = data;
             });
     }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     app.controller('CheckBoxController', ['$scope', function($scope){

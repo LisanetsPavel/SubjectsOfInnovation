@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class Membership {
 
     private Long id;
     private String name;
+    @JsonIgnore
     private Set<Organization> organizations;
     private Set<Subject> subjects;
 
@@ -36,10 +39,12 @@ public class Membership {
     }
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "membership")
+    @JsonIgnore
     public Set<Organization> getOrganizations() {
         return organizations;
     }
 
+    @JsonIgnore
     public void setOrganizations(Set<Organization> organizations) {
         this.organizations = organizations;
     }
