@@ -10,17 +10,35 @@
     <link rel="stylesheet" href="/app/css/style.css">
 </head>
 <body>
+<div class="col-md-6" ng-controller="POSTController">
 
-<div  ng-controller="HttpGetController">
-    <p>Data: <input type="text" name="param" ng-model="param" required /></p>
-    <p>Data: <input type="text" name="param1" ng-model="param1" required /></p>
-    <p>Data: <input type="text" name="param2" ng-model="param2" required /></p>
-    <p>Data: <input type="text" name="param3" ng-model="param3" required /></p>
+    <div ng-model="location"  >
+        <p>Location: <input type="text" name="location" ng-model="location"  class = "input-group"required /></p>
+        <button ng-click="SendData('location')"  class="btn btn-default">Submit</button>
+    </div>
 
-    <button ng-click="SendData()">Submit</button>
-    <hr />
-    <!--{{ PostDataResponse }}-->
-    {{ param }}  loh {{ param1 }} pidr  {{ param1 }} 123 {{ param2 }}
+    <div>
+        <p>Phase: <input type="text" name="phase" ng-model="phase"  class = "input-group" required /></p>
+        <button ng-click="SendData('phase')"  class="btn btn-default ">Submit</button>
+    </div>
+
+    <div>
+        <p>SubjectName: <input type="text" name="subjectName" ng-model="subjectName" class = "input-group" required /></p>
+        <p>SubjectUrl: <input type="text" name="subjectUrl" ng-model="subjectUrl" class = "input-group" required /></p>
+
+        <button ng-click="SendData('subject')" class="btn btn-default ">Submit</button>
+    </div>
+
+    <div>
+        <p>Sphere:</p>
+        <p>ScopeName: <input type="text" name="sphere" ng-model="sphere" class = "input-group" required /></p>
+        <button ng-click="SendData('sphere')" class="btn btn-default ">Submit</button>
+    </div>
+
+    <div>
+        <p>Membership: <input type="text" name="membership" ng-model="membership" class = "input-group" required /></p>
+        <button ng-click="SendData('membership')" class="btn btn-default">Submit</button>
+    </div>
 </div>
 
 

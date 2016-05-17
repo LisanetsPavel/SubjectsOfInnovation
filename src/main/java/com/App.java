@@ -15,6 +15,7 @@ import java.util.Set;
 public class App {
     public static void main(String[] args) {
 
+
      Set<Scope> scopes = new HashSet<>();
      Scope scope = new Scope();
      scope.setName("FourthScope");
@@ -51,6 +52,74 @@ public class App {
 
      OrganizationDao organizationDao = new OrganizationDaoImpl();
         organizationDao.setOrganization(organization);
+
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//
+//        session.beginTransaction();
+//
+//        Set<Phase> phases = new HashSet<Phase>();
+//        Phase phase = new Phase();
+//        new PhaseDaoImpl().setPhase(phase);
+//        phase.setName("PhaseTest");
+//        phases.add(phase);
+//
+//        Set<Scope> scopes = new HashSet<Scope>();
+//        Scope scope = new Scope();
+//        new ScopeDaoImpl().setScope(scope);
+//        scope.setName("ScopeTest");
+//        scopes.add(scope);
+//
+//        Membership membership = new Membership();
+//        membership.setName("dddd");
+//        new MembershipDaoImpl().setMembership(membership);
+//
+//
+//
+//        Organization organization = new Organization();
+//        organization.setFullName("CNLUUU");
+//        organization.setEmail("chhh@com");
+//        OrganizationDao organizationDao = new OrganizationDaoImpl();
+//
+//        organization.setScopes(scopes);
+//        organization.setPhases(phases);
+//        organization.setMembership(membership);
+//        organizationDao.setOrganization(organization);
+
+        System.out.println(new ScopeDaoImpl().getScopeById(new Long(12)).getOrganizations());
+
+        //       organizationDao.setOrganization(organization);
+//
+//        Membership membership = new Membership();
+//        membership.setName("Membership");
+//        MembershipDao membershipDao = new MembershipDaoImpl();
+//        membershipDao.setMembership(membership);
+//
+//        organization.setMembership(membership);
+//
+//        organizationDao.setOrganization(organization);
+//
+//        System.out.println(organizationDao.getAllOrganizations());
+
+      //  MembershipDao membershipDao = new MembershipDaoImpl();
+        System.out.println("App : " +  new MembershipDaoImpl().getMembershipByName("Membership1"));
+
+
+
+        // List<Organization> organizations = organizationDao.getOrganizationsByMembership(new Long(14));
+        //System.out.println(organizations);
+
+
+
+//        organization.setPhases(phases);
+//        organization.setScopes(scopes);
+//        organization.setMembership(membership);
+//        session.save(organization);
+//        session.getTransaction().commit();
+
+//        PhaseDao phaseDao = new PhaseDaoImpl();
+
+
+
 
     }
 }

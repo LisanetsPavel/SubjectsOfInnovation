@@ -32,6 +32,8 @@
    </http>
 
 
+    <global-method-security secured-annotations="enabled" />
+
     <authentication-manager>
         <authentication-provider>
             <user-service>
