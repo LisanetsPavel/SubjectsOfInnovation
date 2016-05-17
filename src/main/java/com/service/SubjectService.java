@@ -2,6 +2,7 @@ package com.service;
 
 import com.dao.SubjectDao;
 import com.entity.Subject;
+import com.util.JsonConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public class SubjectService {
         subject.setName(name);
         subject.setUrl(url);
         subjectDao.setSubject(subject);
+
     }
 
     public void setSubject(Subject subject){
@@ -27,7 +29,11 @@ public class SubjectService {
 
     public Subject getSubjectByName(String name){
        return subjectDao.getSubjectByName(name);
+
     }
 
+    public String getAllSubjects(){
+        return JsonConverter.toJSON(subjectDao.getAllSubject());
+    }
 
 }

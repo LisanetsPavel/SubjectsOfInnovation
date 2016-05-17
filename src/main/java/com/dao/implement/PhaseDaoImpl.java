@@ -4,6 +4,8 @@ import com.dao.PhaseDao;
 import com.entity.Phase;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 /**
  * Created by pc8 on 18.04.16.
@@ -34,4 +36,11 @@ public class PhaseDaoImpl extends GenericDao implements PhaseDao {
     public Phase getPhaseByName(String name) {
         return (Phase) getByName(name, Phase.class);
     }
+
+    @Override
+    public List<Phase> getAllPhase() {
+        return getAll(Phase.class);
+    }
+
+
 }

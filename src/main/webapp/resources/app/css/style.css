@@ -1,0 +1,25 @@
+.criteria{
+    height: 300px;
+    width: 200px;
+}
+#sel1{
+    background-color: #c1e2b3;
+}
+
+#sel2{
+    background-color: thistle;
+}
+#sel3{
+    background-color: #b2dba1;
+}
+#sel4{
+    background-color: seashell;
+}
+
+#sel5{
+    background-color: #c9e2b3;
+}
+
+#search{
+    margin: 10px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AdminModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+
+    <meta charset="UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <link rel="stylesheet" href="/app/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/app/css/style.css">
+</head>
+<body>
+<div class="col-md-6" ng-controller="POSTController">
+
+    <div ng-model="location"  >
+        <p>Location: <input type="text" name="location" ng-model="location"  class = "input-group"required /></p>
+        <button ng-click="SendData('location')"  class="btn btn-default">Submit</button>
+    </div>
+
+    <div>
+        <p>Phase: <input type="text" name="phase" ng-model="phase"  class = "input-group" required /></p>
+        <button ng-click="SendData('phase')"  class="btn btn-default ">Submit</button>
+    </div>
+
+    <div>
+        <p>SubjectName: <input type="text" name="subjectName" ng-model="subjectName" class = "input-group" required /></p>
+        <p>SubjectUrl: <input type="text" name="subjectUrl" ng-model="subjectUrl" class = "input-group" required /></p>
+
+        <button ng-click="SendData('subject')" class="btn btn-default ">Submit</button>
+    </div>
+
+    <div>
+        <p>Sphere:</p>
+        <p>ScopeName: <input type="text" name="sphere" ng-model="sphere" class = "input-group" required /></p>
+        <button ng-click="SendData('sphere')" class="btn btn-default ">Submit</button>
+    </div>
+
+    <div>
+        <p>Membership: <input type="text" name="membership" ng-model="membership" class = "input-group" required /></p>
+        <button ng-click="SendData('membership')" class="btn btn-default">Submit</button>
+    </div>
+</div>
+
+
+
+<script src="/app/js/angular/adminApp.js"></script>
+</body>
+</html>

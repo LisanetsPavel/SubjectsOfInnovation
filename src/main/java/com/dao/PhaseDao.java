@@ -5,6 +5,8 @@ import com.entity.Membership;
 import com.entity.Phase;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by pc8 on 18.04.16.
  */
@@ -20,4 +22,6 @@ public interface PhaseDao {
     void updatePhase(Phase phase);
 
     Phase getPhaseByName(String name);
+
+    List<Phase> getAllPhase();
 }

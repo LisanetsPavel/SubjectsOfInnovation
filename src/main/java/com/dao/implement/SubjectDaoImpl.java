@@ -4,6 +4,8 @@ import com.dao.SubjectDao;
 import com.entity.Subject;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by pc8 on 18.04.16.
  */
@@ -33,4 +35,11 @@ public class SubjectDaoImpl extends GenericDao implements SubjectDao {
     public Subject getSubjectByName(String name) {
         return (Subject) getByName(name, Subject.class);
     }
+
+    @Override
+    public List<Subject> getAllSubject() {
+        return getAll(Subject.class);
+    }
+
+
 }

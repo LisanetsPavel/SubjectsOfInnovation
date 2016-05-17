@@ -2,6 +2,7 @@ package com.service;
 
 import com.dao.ScopeDao;
 import com.entity.Scope;
+import com.util.JsonConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,10 @@ public class ScopeService {
 
     public Scope getSopeByName( String name){
         return scopeDao.getScopeByName(name);
+    }
+
+    public String getAllScopes(){
+        return JsonConverter.toJSON(scopeDao.getAllScope());
     }
 
 }

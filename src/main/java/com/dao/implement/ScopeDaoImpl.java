@@ -9,6 +9,8 @@ import com.util.HibernateUtil;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by pc8 on 18.04.16.
  */
@@ -37,6 +39,11 @@ public class ScopeDaoImpl extends GenericDao implements ScopeDao {
     @Override
     public Scope getScopeByName(String name) {
         return (Scope) getByName(name, Scope.class);
+    }
+
+    @Override
+    public List<Scope> getAllScope() {
+        return getAll(Scope.class);
     }
 
 

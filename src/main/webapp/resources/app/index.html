@@ -1,24 +1,95 @@
+
+<!DOCTYPE HTML>
+<html lang="en" ng-app = "InnoModule">
+
 <!DOCTYPE html>
-< lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <link rel="stylesheet" href="/app/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/app/css/style.css">
+
 </head>
-<>
-<b>Index</b>
- <p> <a href="/">back </a></p>
 
-<img src="/img" >
+<body ng-controller = "OrganizationController as org"
+      ng-controller = "CheckBoxController">
+<div class="container">
+
+<div class="col-md-6">
+      <h1>Критерии поиска</h1>
+    <div class="input-group" id="search">
+        <input type="text" class="form-control" ng-model = "zorro" placeholder="имя организации...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div>
+    <div class="form-group">
+        <label for="sel1">Субъект</label>
+        <select class="form-control" id="sel1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="sel1">Институционная принадлежность</label>
+        <select class="form-control" id="sel2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="sel1">Сфера деятельности</label>
+        <select class="form-control" id="sel3">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="sel1">Этапы</label>
+        <select class="form-control" id="sel4">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </div>
+
+    <div class="form-group" ng-controller="SelectController as select" >
+        <label for="sel1" > Hello {{select.myarray[2]}}</label>
+        <select class="form-control" id="sel5">
+            <option  ng-repeat="arr in select.myarray">{{ arr }}</option>
+        </select>
+    </div>
+
+</div>
+
+    <div class="col-md-6">
+
+        <h1>Список огранизаций </h1>
+
+        <ul class="list-group" ng-repeat = "organization in organizations | filter : zorro">
+            <li class="list-group-item" > Full {{organization.fullName }} </li>
+        </ul>
+
+    </div>
 
 
 
-      <table id="image" width="500" height="700" >  </table>
 
+</div>
 
+<script src="/app/js/angular/app.js"></script>
 
-
-
-
-<script>document.getElementById("image").setAttribute("style", "background-image:url('/img');width:500;height:700;background-size: contain;");</script>
 </body>
 </html>

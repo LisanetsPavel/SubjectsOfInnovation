@@ -5,6 +5,8 @@ import com.entity.Scope;
 import com.entity.Subject;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by pc8 on 18.04.16.
  */
@@ -20,4 +22,7 @@ public interface SubjectDao {
     void updateSubject(Subject subject);
 
     Subject getSubjectByName(String name);
+
+    List<Subject> getAllSubject();
+
 }

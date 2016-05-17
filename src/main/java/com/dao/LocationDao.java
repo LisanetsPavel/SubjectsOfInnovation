@@ -3,6 +3,8 @@ package com.dao;
 import com.entity.Location;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by pc8 on 18.04.16.
  */
@@ -18,4 +20,6 @@ public interface LocationDao {
     void updateLocation(Location location);
 
     Location getLocationByName(String name);
+
+    List<Location> getAllLocations();
 }
