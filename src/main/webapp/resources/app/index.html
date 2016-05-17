@@ -13,8 +13,7 @@
 
 </head>
 
-<body ng-controller = "OrganizationController as org"
-      ng-controller = "CheckBoxController">
+<body ng-controller = "InitController as init">
 <div class="container">
 
 <div class="col-md-6">
@@ -65,10 +64,10 @@
         </select>
     </div>
 
-    <div class="form-group" ng-controller="SelectController as select" >
+    <div class="form-group">
         <label for="sel1" > Hello {{select.myarray[2]}}</label>
         <select class="form-control" id="sel5">
-            <option  ng-repeat="arr in select.myarray">{{ arr }}</option>
+            <option  ng-repeat="arr in init.location">{{ arr }}</option>
         </select>
     </div>
 
@@ -79,7 +78,7 @@
         <h1>Список огранизаций </h1>
 
         <ul class="list-group" ng-repeat = "organization in organizations | filter : zorro">
-            <li class="list-group-item" > Full {{organization.fullName }} </li>
+            <li class="list-group-item" >{{organization.fullName }} </li>
         </ul>
 
     </div>
