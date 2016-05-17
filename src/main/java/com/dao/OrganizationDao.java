@@ -19,6 +19,10 @@ public interface OrganizationDao {
 
      List<Organization> getAllOrganizations();
 
+     List<Organization> getAgreedOrganizations();
+
+     List<Organization> getDisagreedOrganizations();
+
      Set<Organization> getOrganizationsBySubject(Long subjectId);
 
      Set<Organization> getOrganizationsByLocation(Long locationId);

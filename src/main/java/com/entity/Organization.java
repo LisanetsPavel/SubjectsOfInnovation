@@ -9,10 +9,12 @@ import java.util.Set;
  * Created by pc8 on 14.04.16.
  */
 @Entity
-@Table(name = "organization", catalog = "InnovInfr")
+@Table(name = "organization", catalog = "InnovInfr",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"email" , "full_name"}))
 public class Organization implements Comparable {
 
     private Long id;
+
     private String fullName;
     private String shortName;
     private String fullNameEng;
@@ -22,15 +24,15 @@ public class Organization implements Comparable {
     private Integer code;
     private String legalAdress;
     private String factualAdress;
-    private Long phoneNumber;
+    private Long phoneNumber ;
     private String site;
     private String email;
     private String nameOfDirector;
     private String founder;
+    private Boolean agreed ;
 
     private Subject subject;
     private Location location;
-
 
     private Membership membership;
 
@@ -49,7 +51,17 @@ public class Organization implements Comparable {
         this.id = id;
     }
 
-    @Column(name = "full_name")
+    @Column(name = "agreed", columnDefinition = "false", nullable = false)
+    public Boolean getAgreed() {
+
+        return agreed == null ? false : agreed;
+    }
+
+    public void setAgreed(Boolean agreed) {
+        this.agreed = agreed == null ? false : agreed;
+    }
+
+    @Column(name = "full_name" , unique = true)
     public String getFullName() {
         return fullName;
     }
@@ -148,7 +160,7 @@ public class Organization implements Comparable {
         this.site = site;
     }
 
-    @Column(name = "email")
+    @Column(name = "email" , unique = true)
     public String getEmail() {
         return email;
     }
@@ -252,7 +264,7 @@ public class Organization implements Comparable {
                 ", founder='" + founder + '\'' +
 //                ", subject=" + subject +
 //                ", location=" + location +
-//                ", membership=" + membership +
+                ", membership=" + membership +
 
 
                 '}';

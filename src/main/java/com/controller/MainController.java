@@ -1,8 +1,6 @@
 package com.controller;
 
 import com.service.OrganizationService;
-import com.service.SearchService;
-import com.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +17,13 @@ public class MainController {
     @Autowired
     OrganizationService organizationService;
 
+    String json = "{\"id\":null,\"fullName\":\"org3\",\"shortName\":null,\"fullNameEng\":null,\"form\":null,\"subordination\":null,\"projects\":null,\"code\":null,\"legalAdress\":null,\"factualAdress\":null,\"phoneNumber\":null,\"site\":null,\"email\":null,\"nameOfDirector\":null,\"founder\":null,\"subject\":{\"id\":null,\"name\":\"sub\",\"url\":null,\"organizations\":null,\"memberships\":null},\"location\":null,\"membership\": {\"name\" : \"memberrr\" },\"scopes\":[{\"id\":null,\"name\":\"sco\",\"organizations\":null}],\"phases\":[{\"id\":null,\"name\":\"pha\",\"organizations\":null}]}";
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     public String hello(){
 
-        return organizationService.getAllOrganizations();
+        return organizationService.getDisagreedOrganizations();
     }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -31,6 +31,13 @@ public class MainController {
         return "app/index.html";
     }
 
+    @RequestMapping(value = "/setOrg", method = RequestMethod.GET)
+    public String setOrg(@RequestParam String name){
+
+        organizationService.setOrganization(json);
+        return "app/index.html";
+
+    }
 
     @RequestMapping(value = "/img", method = RequestMethod.GET)
     public String img(){

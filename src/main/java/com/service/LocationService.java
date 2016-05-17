@@ -20,5 +20,12 @@ public class LocationService {
         locationDao.setLocation(location);
     }
 
+    public void setLocation(Location location){
+         locationDao.setLocation(location);
+    }
+
+    public Location getLocationByName(String name){
+        return locationDao.getLocationByName(name);
+    }
 
 }

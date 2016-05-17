@@ -66,7 +66,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/setSubject", method =  RequestMethod.GET)
-    public String setPhase(@RequestParam String name,
+    public String setSubject(@RequestParam String name,
                            String url){
        System.out.println("setSubject");
        subjectService.setSubject(name, url);

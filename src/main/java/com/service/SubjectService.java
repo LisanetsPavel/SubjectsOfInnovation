@@ -18,7 +18,16 @@ public class SubjectService {
         Subject subject = new Subject();
         subject.setName(name);
         subject.setUrl(url);
-
+        subjectDao.setSubject(subject);
     }
+
+    public void setSubject(Subject subject){
+        subjectDao.setSubject(subject);
+    }
+
+    public Subject getSubjectByName(String name){
+       return subjectDao.getSubjectByName(name);
+    }
+
 
 }

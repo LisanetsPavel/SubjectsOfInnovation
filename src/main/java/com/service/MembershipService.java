@@ -21,4 +21,14 @@ public class MembershipService {
 
     }
 
+    public void setMembership(Membership membership){
+
+        membershipDao.setMembership(membership);
+
+    }
+
+    public Membership getMembershipByName(String name){
+        return  membershipDao.getMembershipByName(name);
+    }
+
 }

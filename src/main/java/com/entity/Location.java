@@ -9,7 +9,8 @@ import java.util.Set;
  * Created by pc8 on 14.04.16.
  */
 @Entity
-@Table(name = "location", catalog = "InnovInfr")
+@Table(name = "location", catalog = "InnovInfr"
+       )
 public class Location implements Comparable {
 
     private Long id;

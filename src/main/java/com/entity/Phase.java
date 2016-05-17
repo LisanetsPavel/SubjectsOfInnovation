@@ -9,7 +9,7 @@ import java.util.Set;
  * Created by pc8 on 14.04.16.
  */
 @Entity
-@Table(name = "phase", catalog = "InnovInfr")
+@Table(name = "phase", catalog = "InnovInfr" )
 public class Phase {
 
     private Long id;

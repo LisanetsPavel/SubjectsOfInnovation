@@ -20,4 +20,8 @@ public class ScopeService {
         scopeDao.setScope(scope);
     }
 
+    public Scope getSopeByName( String name){
+        return scopeDao.getScopeByName(name);
+    }
+
 }

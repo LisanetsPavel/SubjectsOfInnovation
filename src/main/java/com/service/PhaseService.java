@@ -21,5 +21,8 @@ public class PhaseService {
 
     }
 
+    public Phase getPhaseByName(String name){
+        return phaseDao.getPhaseByName(name);
+    }
 
 }
