@@ -65,6 +65,7 @@ public class AdminController {
 
     }
 
+
     @RequestMapping(value = "/setSubject", method =  RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void setSubject(@RequestParam String name,

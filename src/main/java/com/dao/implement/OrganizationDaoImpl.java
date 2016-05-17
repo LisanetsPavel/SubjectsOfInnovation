@@ -5,6 +5,7 @@ import com.entity.*;
 import com.util.CloseableSession;
 import com.util.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -36,6 +37,22 @@ public class OrganizationDaoImpl extends GenericDao implements OrganizationDao {
             Session session = closeableSession.getSession();
             return  (List<Organization>) session.createCriteria(Organization.class).list();
 
+        }
+    }
+
+    @Override
+    public List<Organization> getAgreedOrganizations() {
+      try(CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
+          Session session = closeableSession.getSession();
+          return  (List<Organization>) session.createCriteria(Organization.class).add(Restrictions.eq("agreed", true)).list();
+      }
+    }
+
+    @Override
+    public List<Organization> getDisagreedOrganizations() {
+        try(CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
+            Session session = closeableSession.getSession();
+            return  (List<Organization>) session.createCriteria(Organization.class).add(Restrictions.eq("agreed", false)).list();
         }
     }
 

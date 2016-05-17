@@ -2,6 +2,7 @@ package com.service;
 
 import com.dao.PhaseDao;
 import com.entity.Phase;
+import com.util.JsonConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,12 @@ public class PhaseService {
 
     }
 
+    public Phase getPhaseByName(String name){
+        return phaseDao.getPhaseByName(name);
+    }
+
+    public String getAllPhases(){
+        return JsonConverter.toJSON(phaseDao.getAllPhase());
+    }
 
 }

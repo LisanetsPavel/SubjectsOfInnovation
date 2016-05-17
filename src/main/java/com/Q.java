@@ -1,5 +1,7 @@
 package com;
 
+import com.dao.implement.SubjectDaoImpl;
+
 class Q {
     void mQ(int i) {
         System.out.print("mQ" + i);
@@ -10,7 +12,9 @@ class Quest6 extends Q {
     }
 
     public static void main(String args[]) {
-        Q ob = new Quest6(); //1
-        ob.mQ(1); //2
+        SubjectDaoImpl si =new SubjectDaoImpl();
+        System.out.println(si.getSubjectById(2l));
+
+
 
     } }

@@ -8,6 +8,8 @@ import com.util.HibernateUtil;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by pc8 on 18.04.16.
  */
@@ -37,4 +39,11 @@ public class LocationDaoImpl extends GenericDao implements LocationDao {
     public Location getLocationByName(String name) {
         return (Location) getByName(name, Location.class);
     }
+
+    @Override
+    public List<Location> getAllLocations() {
+        return getAll(Location.class);
+    }
+
+
 }

@@ -2,6 +2,7 @@ package com.service;
 
 import com.dao.LocationDao;
 import com.entity.Location;
+import com.util.JsonConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,15 @@ public class LocationService {
         locationDao.setLocation(location);
     }
 
+    public void setLocation(Location location){
+         locationDao.setLocation(location);
+    }
 
+    public Location getLocationByName(String name){
+        return locationDao.getLocationByName(name);
+    }
+
+    public String getAllLocations(){
+        return JsonConverter.toJSON(locationDao.getAllLocations());
+    }
 }

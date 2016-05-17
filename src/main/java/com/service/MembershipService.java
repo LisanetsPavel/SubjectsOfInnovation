@@ -2,6 +2,7 @@ package com.service;
 
 import com.dao.MembershipDao;
 import com.entity.Membership;
+import com.util.JsonConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +22,17 @@ public class MembershipService {
 
     }
 
+    public void setMembership(Membership membership){
+
+        membershipDao.setMembership(membership);
+
+    }
+
+    public Membership getMembershipByName(String name){
+        return  membershipDao.getMembershipByName(name);
+    }
+
+    public String getAllMemberships(){
+        return JsonConverter.toJSON(membershipDao.getAllMemberships());
+    }
 }

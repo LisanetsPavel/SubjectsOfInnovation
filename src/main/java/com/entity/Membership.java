@@ -16,6 +16,7 @@ public class Membership {
     private String name;
     @JsonIgnore
     private Set<Organization> organizations;
+    @JsonIgnore
     private Set<Subject> subjects;
 
     @Id
@@ -53,10 +54,11 @@ public class Membership {
     @JoinTable(name = "membership_subject", catalog = "InnovInfr", joinColumns = {
             @JoinColumn(name = "membership_id", nullable =  false)
     }, inverseJoinColumns = {@JoinColumn(name = "subject_id", nullable = false)})
+    @JsonIgnore
     public Set<Subject> getSubjects() {
         return subjects;
     }
-
+    @JsonIgnore
     public void setSubjects(Set<Subject> subjects) {
         this.subjects = subjects;
     }

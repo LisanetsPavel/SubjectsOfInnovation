@@ -4,6 +4,8 @@ import com.entity.Location;
 import com.entity.Membership;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by pc8 on 18.04.16.
  */
@@ -19,4 +21,6 @@ public interface MembershipDao {
     void updateMembership(Membership membership);
 
     Membership getMembershipByName(String name);
+
+    List<Membership> getAllMemberships();
 }

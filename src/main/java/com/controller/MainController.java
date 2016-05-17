@@ -20,16 +20,31 @@ public class MainController {
     @Autowired
     OrganizationService organizationService;
 
+
+    String json = "{\"id\":null,\"fullName\":\"org3\",\"shortName\":null,\"fullNameEng\":null,\"form\":null,\"subordination\":null,\"projects\":null,\"code\":null,\"legalAdress\":null,\"factualAdress\":null,\"phoneNumber\":null,\"site\":null,\"email\":null,\"nameOfDirector\":null,\"founder\":null,\"subject\":{\"id\":null,\"name\":\"sub\",\"url\":null,\"organizations\":null,\"memberships\":null},\"location\":null,\"membership\": {\"name\" : \"memberrr\" },\"scopes\":[{\"id\":null,\"name\":\"sco\",\"organizations\":null}],\"phases\":[{\"id\":null,\"name\":\"pha\",\"organizations\":null}]}";
+
+
+
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     @ResponseBody
-    public String hello(){
+    public String hello
+            (){
 
-        return organizationService.getAllOrganizations();
+        return organizationService.getDisagreedOrganizations();
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
         return "app/index.html";
+    }
+
+
+    @RequestMapping(value = "/setOrg", method = RequestMethod.GET)
+    public String setOrg(@RequestParam String name){
+
+        organizationService.setOrganization(json);
+        return "app/index.html";
+
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)

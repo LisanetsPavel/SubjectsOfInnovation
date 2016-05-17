@@ -75,9 +75,10 @@ public class App {
 //
 //
 //
+//        System.out.println("App");
 //        Organization organization = new Organization();
-//        organization.setFullName("CNLUUU");
-//        organization.setEmail("chhh@com");
+//        organization.setFullName("LNLUUU");
+//        organization.setEmail("fhhh@com");
 //        OrganizationDao organizationDao = new OrganizationDaoImpl();
 //
 //        organization.setScopes(scopes);
@@ -85,9 +86,8 @@ public class App {
 //        organization.setMembership(membership);
 //        organizationDao.setOrganization(organization);
 
-        System.out.println(new ScopeDaoImpl().getScopeById(new Long(12)).getOrganizations());
-
-        //       organizationDao.setOrganization(organization);
+//        System.out.println(new ScopeDaoImpl().getScopeById(new Long(12)).getOrganizations());
+        organizationDao.setOrganization(organization);
 //
 //        Membership membership = new Membership();
 //        membership.setName("Membership");

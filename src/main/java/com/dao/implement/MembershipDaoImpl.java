@@ -10,6 +10,8 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by pc8 on 18.04.16.
  */
@@ -39,5 +41,10 @@ public class MembershipDaoImpl extends GenericDao implements MembershipDao {
     public Membership getMembershipByName(String name){
 
         return (Membership)  getByName(name, Membership.class);
+    }
+
+    @Override
+    public List<Membership> getAllMemberships() {
+        return getAll(Membership.class);
     }
 }

@@ -3,20 +3,23 @@
  */
 //
 'use strict';
-(function(){
-    var app = angular.module('InnoModule',[]);
+(function () {
+    var app = angular.module('InnoModule', []);
+
+
+
 
 
 
     app.controller('InitController',
         ['$scope', '$http', function($scope, $http){
             var requiredData = [
-                {name: 'organization', url: '/index',        destination: $scope.organizations },
-                {name: 'location',     url: '/getLocation',  destination: $scope.location},
-                {name: 'membership',   url: '/getMembership',destination: $scope.membership},
-                {name: 'sphere',       url: '/getScope',     destination: $scope.sphere},
-                {name: 'phase',        url: '/getPhase',     destination: $scope.phase},
-                {name: 'subject',      url: '/getSubject',   destination: $scope.subjectName + '&url=' + $scope.subjectUrl}
+                {name: 'organization', url: '/getOrgs',        destination: $scope.organizations },
+                {name: 'location',     url: '/getLocations',  destination: $scope.location},
+                {name: 'membership',   url: '/getMemberships',destination: $scope.membership},
+                {name: 'sphere',       url: '/getScopes',     destination: $scope.sphere},
+                {name: 'phase',        url: '/getPhases',     destination: $scope.phase},
+                {name: 'subject',      url: '/getSubjects',   destination: $scope.subjectName + '&url=' + $scope.subjectUrl}
             ]
             for(var  i = 0; i < requiredData.length; i++){
                 $http.get(requiredData[i].url).success(function(data) {
@@ -40,31 +43,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    app.controller('CheckBoxController', ['$scope', function($scope){
+    app.controller('CheckBoxController', ['$scope', function ($scope) {
         $scope.checkboxModel = {
             value1: false,
             value2: false,
             value3: false
         }
-        }]);
+    }]);
 
-        app.controller('SelectController', function(){
-            this.myarray = [5,6,7,8,9,10];
+    app.controller('SelectController', function () {
+        this.myarray = [5, 6, 7, 8, 9, 10];
 
     });
-
-
 
 
 })();
