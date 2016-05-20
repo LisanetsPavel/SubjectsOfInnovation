@@ -1,6 +1,9 @@
 package com;
 
+import com.dao.OrganizationDao;
+import com.dao.implement.OrganizationDaoImpl;
 import com.dao.implement.SubjectDaoImpl;
+import com.entity.Organization;
 
 class Q {
     void mQ(int i) {
@@ -12,8 +15,12 @@ class Quest6 extends Q {
     }
 
     public static void main(String args[]) {
-        SubjectDaoImpl si =new SubjectDaoImpl();
-        System.out.println(si.getSubjectById(2l));
+        OrganizationDao dao = new OrganizationDaoImpl();
+        Organization organization = new Organization();
+        organization.setFullName("dfsaf");
+        organization.setAgreed(true);
+
+       dao.setOrganization(organization);
 
 
 

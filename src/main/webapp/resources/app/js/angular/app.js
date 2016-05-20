@@ -7,41 +7,39 @@
     var app = angular.module('InnoModule', []);
 
 
-
-
-
-
-    app.controller('InitController',
-        ['$scope', '$http', function($scope, $http){
-            var requiredData = [
-                {name: 'organization', url: '/getOrgs',        destination: $scope.organizations },
-                {name: 'location',     url: '/getLocations',  destination: $scope.location},
-                {name: 'membership',   url: '/getMemberships',destination: $scope.membership},
-                {name: 'sphere',       url: '/getScopes',     destination: $scope.sphere},
-                {name: 'phase',        url: '/getPhases',     destination: $scope.phase},
-                {name: 'subject',      url: '/getSubjects',   destination: $scope.subjectName + '&url=' + $scope.subjectUrl}
-            ]
-            for(var  i = 0; i < requiredData.length; i++){
-                $http.get(requiredData[i].url).success(function(data) {
-                    requiredData[i].destination = data;
-                });
+    /*app.controller('OrganizationController',
+        ['$scope', '$http', function ($scope, $http) {
+            var obj ={
+                key: 'http://localhost:8080/getOrgs',
+                value: $scope.organizations
             }
+            $scope.organizations = []
+            var adress = ['http://localhost:8080/getOrgs'];
+             var getTer = function(){
+               $http.get(adress[0]).success(function (data) {
+                  //
 
+                   $scope.organizations.put(data);
+
+                   
+                  //$scope.organizations = data;
+                   obj.value.push(data);
+                    return data;
+               });
+           }
+
+            this.organs = getTer();
+            alert(this.organs)
+
+
+        }]);*/
+
+    app.controller('TestController',['$scope','foo2', function($scope,foo2){
+        alert('testController')
+        foo2.success(function(data) {
+            $scope.allData = data;
+        });
     }]);
-
-    app.controller('GETController',
-        ['$scope', '$http', function($scope, $http){
-           var data = [];
-            $scope.getData(flag)
-            $http.get('http://localhost:8080/index').success(function(data) {
-                $scope.organizations = data;
-            });
-        }]);
-
-
-
-
-
 
     app.controller('CheckBoxController', ['$scope', function ($scope) {
         $scope.checkboxModel = {
@@ -52,13 +50,12 @@
     }]);
 
     app.controller('SelectController', function () {
-        this.myarray = [5, 6, 7, 8, 9, 10];
+       this.myarray = [5, 6, 7, 8, 9, 10];
 
     });
 
 
 })();
-
 
 
 
