@@ -40,7 +40,7 @@ public class SearchController {
         return organizationService.getAllOrganizations();
     }
 
-    @RequestMapping(value = "/getScopes", method = RequestMethod.GET)
+    @RequestMapping(value = "/getScopes", method = RequestMethod.GET )
     public String getAllScopes() {
         return scopeService.getAllScopes();
     }
@@ -55,12 +55,12 @@ public class SearchController {
         return subjectService.getAllSubjects();
     }
 
-    @RequestMapping(value = "getLocations", method = RequestMethod.GET)
+    @RequestMapping(value = "/getLocations", method = RequestMethod.GET)
     public String getAllLOcations() {
         return locationService.getAllLocations();
     }
 
-    @RequestMapping(value = "getMemberships", method = RequestMethod.GET)
+    @RequestMapping(value = "/getMemberships", method = RequestMethod.GET)
     public String getAllMemberships() {
         return membershipService.getAllMemberships();
     }

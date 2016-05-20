@@ -1,5 +1,7 @@
 package com.util;
 
+import com.exception.DaoException;
+import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Service;
@@ -10,14 +12,17 @@ import org.springframework.stereotype.Service;
 
 public class HibernateUtil {
 
+    private static final Logger logger = Logger.getLogger(HibernateUtil.class);
+
     private static SessionFactory sessionFactory = null;
 
     static {
         try {
-            //creates the session factory from hibernate.cfg.xml
+
             sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Exception e) {
-            e.printStackTrace();
+           logger.error(e);
+           throw new DaoException();
         }
     }
 

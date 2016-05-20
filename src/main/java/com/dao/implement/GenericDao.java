@@ -1,9 +1,13 @@
 package com.dao.implement;
 
+import com.exception.DaoException;
 import com.util.CloseableSession;
-import com.util.HibernateUtil;
+
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,57 +18,81 @@ import java.util.List;
 @Repository
 public class GenericDao<T>  {
 
+    private static final Logger logger = Logger.getLogger(GenericDao.class);
+
+    @Autowired
+    private SessionFactory sessionFactory;
+
      protected void set( T t){
-        try (CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
+
+        try (CloseableSession closeableSession = new CloseableSession(sessionFactory.openSession())){
 
             closeableSession.getSession().beginTransaction();
             closeableSession.getSession().save(t);
             closeableSession.getSession().getTransaction().commit();
 
+        } catch (Exception e){
+            logger.error(e);
+             throw new DaoException(e);
         }
     }
 
     protected T get(Long id, Class clazz){
-        try (CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
+        try (CloseableSession closeableSession = new CloseableSession(sessionFactory.openSession())){
             Session session = closeableSession.getSession();
             return  (T)  session.get( clazz, id);
 
+        } catch (Exception e){
+            logger.error(e);
+            throw new DaoException(e);
         }
     }
 
     protected List<T> getAll(Class clazz){
-        try (CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
+        try (CloseableSession closeableSession = new CloseableSession(sessionFactory.openSession())){
             Session session = closeableSession.getSession();
             return  (List<T>) session.createCriteria(clazz).list();
 
+        }catch (Exception e){
+            logger.error(e);
+            throw new DaoException(e);
         }
     }
 
     protected void update(T t){
-        try (CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
+        try (CloseableSession closeableSession = new CloseableSession(sessionFactory.openSession())){
 
             closeableSession.getSession().beginTransaction();
             closeableSession.getSession().update(t);
             closeableSession.getSession().getTransaction().commit();
 
+        }catch (Exception e){
+            logger.error(e);
+            throw new DaoException(e);
         }
     }
 
     protected void delete(T t){
-        try (CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
+        try (CloseableSession closeableSession = new CloseableSession(sessionFactory.openSession())){
 
             closeableSession.getSession().beginTransaction();
             closeableSession.getSession().delete(t);
             closeableSession.getSession().getTransaction().commit();
 
+        }catch (Exception e){
+            logger.error(e);
+            throw new DaoException(e);
         }
     }
 
     protected T getByName(String name, Class clazz){
-        try (CloseableSession closeableSession = new CloseableSession(HibernateUtil.getSessionFactory().openSession())){
+        try (CloseableSession closeableSession = new CloseableSession(sessionFactory.openSession())){
             Session session = closeableSession.getSession();
             return  (T) session.createCriteria(clazz).add(Restrictions.like("name", name)).uniqueResult();
 
+        }catch (Exception e){
+            logger.error(e);
+            throw new DaoException(e);
         }
     }
 

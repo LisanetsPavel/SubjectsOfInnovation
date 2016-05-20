@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity
 @Table(name = "organization", catalog = "InnovInfr",
         uniqueConstraints = @UniqueConstraint(columnNames = {"email" , "full_name"}))
-public class Organization implements Comparable {
+public class Organization  {
 
     private Long id;
 
@@ -270,22 +270,6 @@ public class Organization implements Comparable {
                 '}';
     }
 
-    @Override
-    public int compareTo(Object o) {
-        Organization organization;
-        if (o instanceof Organization){
-            organization = (Organization) o;
-        } else{
-            return 1;
-        }
-        if (this.shortName != null && organization.getShortName() != null){
-            return this.shortName.compareTo(organization.getShortName());
-        } else if ((this.fullName != null && organization.getFullName() != null )){
-            return this.fullName.compareTo(organization.getFullName());
-        }
-
-       return 0;
-    }
 
 
 }

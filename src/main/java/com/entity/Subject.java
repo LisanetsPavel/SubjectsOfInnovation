@@ -10,7 +10,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "subject", catalog = "InnovInfr")
-public class Subject implements Comparable {
+public class Subject  {
 
     private Long id;
     private String name;
@@ -68,26 +68,6 @@ public class Subject implements Comparable {
 
     public void setMemberships(Set<Membership> memberships) {
         this.memberships = memberships;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        Subject subject;
-        if (o instanceof Subject){
-            subject = (Subject) o;
-        } else {
-            return 1;
-        }
-
-        if (this.getOrganizations() != null && subject.getOrganizations() != null){
-            if(this.getOrganizations().size() > subject.getOrganizations().size()){
-                return 1;
-            } else if (this.getOrganizations().size() < subject.getOrganizations().size()){
-                return -1;
-            }
-        }
-
-        return 0;
     }
 
 
