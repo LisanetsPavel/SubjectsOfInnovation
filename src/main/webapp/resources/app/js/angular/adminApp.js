@@ -51,7 +51,7 @@
                         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                     }
                 }
-                var adress = router(adresses, flag)
+                var adress = router(adresses, flag);
                 var data = adress.data;
                 var url = adress.url;
                 $http.post(url, data, config)

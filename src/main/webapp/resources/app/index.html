@@ -1,6 +1,6 @@
 
 <!DOCTYPE HTML>
-<html lang="en" ng-app = "InnoModule">
+<html lang="en" ng-app = "NewModule">
 
 <!DOCTYPE html>
 
@@ -13,73 +13,64 @@
 
 </head>
 
-<body ng-controller = "OrganizationController as org"
-      ng-controller = "CheckBoxController">
+<body ng-controller = "FixController">
 <div class="container">
 
-<div class="col-md-6">
-      <h1>Критерии поиска</h1>
-    <div class="input-group" id="search">
-        <input type="text" class="form-control" ng-model = "zorro" placeholder="имя организации...">
+    <div class="col-md-6">
+        <h1>Критерии поиска</h1>
+        <div class="input-group" id="search">
+            <input type="text" class="form-control" ng-model = "zorro" placeholder="имя организации...">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
       </span>
-    </div>
-    <div class="form-group">
-        <label for="sel1">Субъект</label>
-        <select class="form-control" id="sel1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
+        </div>
+        <div class="form-group">
+            <label for="sel1" > СФЕРА </label>
+            <select class="form-control" id="sel1">
+                <option  ng-repeat="sphere in spheres">{{sphere.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group"
+                >
+            <label for="sel1" > ЧЛЕНСТВО </label>
+            <select class="form-control" id="sel2">
+                <option  ng-repeat="membership in memberships">{{membership.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="sel1" > ФАЗА </label>
+            <select class="form-control" id="sel3">
+                <option  ng-repeat="phase in phases">{{phase.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="sel1" > МЕСТОНАХОЖДЕНИЕ </label>
+            <select class="form-control" id="sel4">
+                <option  ng-repeat="location in locations">{{location.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="sel1" > ОБЪЕКТ </label>
+            <select class="form-control" id="sel5">
+                <option  ng-repeat="subject in subjects">{{subject.name}}</option>
+            </select>
+        </div>
+
+
+
     </div>
 
-    <div class="form-group">
-        <label for="sel1">Институционная принадлежность</label>
-        <select class="form-control" id="sel2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="sel1">Сфера деятельности</label>
-        <select class="form-control" id="sel3">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="sel1">Этапы</label>
-        <select class="form-control" id="sel4">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
-    </div>
-
-    <div class="form-group" ng-controller="SelectController as select" >
-        <label for="sel1" > Hello {{select.myarray[2]}}</label>
-        <select class="form-control" id="sel5">
-            <option  ng-repeat="arr in select.myarray">{{ arr }}</option>
-        </select>
-    </div>
-
-</div>
 
     <div class="col-md-6">
 
         <h1>Список огранизаций </h1>
 
         <ul class="list-group" ng-repeat = "organization in organizations | filter : zorro">
-            <li class="list-group-item" > Full {{organization.fullName }} </li>
+            <li class="list-group-item" > {{organization.fullName }} </li>
         </ul>
 
     </div>
@@ -89,7 +80,9 @@
 
 </div>
 
-<script src="/app/js/angular/app.js"></script>
+<script src="/app/js/angular/app2.js"></script>
+<script src="/app/js/angular/service/fixService.js"></script>
+<script src="/app/js/angular/controller/someController.js"></script>
 
 </body>
 </html>
