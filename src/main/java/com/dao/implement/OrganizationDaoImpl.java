@@ -4,7 +4,6 @@ import com.dao.OrganizationDao;
 import com.entity.*;
 import com.exception.DaoException;
 import com.util.CloseableSession;
-import com.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,6 +28,12 @@ public class OrganizationDaoImpl extends GenericDao implements OrganizationDao {
     public void setOrganization(Organization organization) {
          set(organization);
     }
+
+    @Override
+    public void updateOrganization(Organization organization) {
+        update(organization);
+    }
+
 
     public Organization getOrganizationById(Long organizationId) {
         try (CloseableSession closeableSession = new CloseableSession(sessionFactory.openSession())){
@@ -138,6 +143,7 @@ public class OrganizationDaoImpl extends GenericDao implements OrganizationDao {
             throw new DaoException(e);
         }
     }
+
 
 
 

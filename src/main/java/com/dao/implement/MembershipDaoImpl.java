@@ -1,13 +1,7 @@
 package com.dao.implement;
 
 import com.dao.MembershipDao;
-import com.entity.Location;
 import com.entity.Membership;
-import com.entity.Organization;
-import com.util.CloseableSession;
-import com.util.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

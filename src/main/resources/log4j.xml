@@ -13,7 +13,7 @@
     </appender>
 
     <appender name="FileAppender" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="${catalina.home}/logs/oldlib.log"/>
+        <param name="File" value="${catalina.home}/logs/innov.log"/>
         <param name="DatePattern" value="'-'yyyy-MM-dd"/>
         <param name="Encoding" value="utf-8"/>
         <layout class="org.apache.log4j.PatternLayout">

@@ -25,24 +25,20 @@ public class MainController {
 
 
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    @ResponseBody
-    public String hello
-            (){
-
-        return organizationService.getDisagreedOrganizations();
-    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
-        return "app/index.html";
+
+
+           return "app/index.html";
+
     }
 
 
     @RequestMapping(value = "/setOrg", method = RequestMethod.GET)
-    public String setOrg(@RequestParam String name){
+    public String setOrg(@RequestParam String org){
 
-        organizationService.setOrganization(json);
+        organizationService.setOrganization(org);
         return "app/index.html";
 
     }

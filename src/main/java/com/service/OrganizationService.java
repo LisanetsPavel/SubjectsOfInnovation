@@ -100,10 +100,12 @@ public class OrganizationService {
         System.out.println(organization.getMembership().getName());
     }
 
-    public static void main(String[] args) {
-
-        new OrganizationService().setOrganization(json);
+    public void agree(int id){
+        Organization organization = organizationDao.getOrganizationById(new Long(id));
+        organization.setAgreed(true);
+        organizationDao.updateOrganization(organization);
 
     }
+
 
 }
