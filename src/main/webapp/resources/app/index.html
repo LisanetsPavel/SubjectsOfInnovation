@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="/app/css/style.css">
 </head>
 
-<body ng-controller="FixController">
+<body ng-controller="initController">
     <div class="container">
+
+        <!--SEARCH FIELDS-->
         <div class="col-md-6" >
             <h1>Критеріі пошуку</h1>
         <div class="input-group" id="search">
@@ -31,60 +33,48 @@
             </div>
             <div class="form-group">
                 <label for="sel4">Місцезнаходження</label>
-                <select class="form-control"
+                <select class      ="form-control"
                         name="locationInSearch"
-                        id="sel4"
-                        ng-model="locationInSearch"
-                        ng-options="location.name  for  location in locations">
-                    <option value="">---Місцезнаходження---</option>
+                        id         = "sel4"
+                        ng-model   = "locationInSearch"
+                        ng-options = "location.name  for  location in locations">
+                        <option value="">---Місцезнаходження---</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="sel5">Суб'єкт інноваційної інфраструктури</label>
-                <select class="form-control"
-                        name="subjectInSearch"
-                        id="sel5"
-                        ng-model="subjectInSearch"
-                        ng-options="subject.name  for  subject in subjects">
+                <select class      = "form-control"
+                        name       = "subjectInSearch"
+                        id         = "sel5"
+                        ng-model   = "subjectInSearch"
+                        ng-options = "subject.name  for  subject in subjects">
                         <option value="">---Суб'єкт інноваційної інфраструктури---</option>
-
                 </select>
             </div>
             <div class="form-group">
                 <label for="sel3">Етап</label>
-                <select multiple class = "form-control"
+                <select          class = "form-control"
                         name           = "phaseInSearch"
                         id             = "sel3"
                         ng-model       = "phaseInSearch"
                         ng-options     = "phase.name  for  phase in phases">
-                    <option value="">---Етап---</option>
+                        <option value="">---Етап---</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="sel1">Сфера діяльності</label>
-                <select multiple class = "form-control"
+                <select class = "form-control"
                         name           = "sphereInSearch"
                         id             = "sel1"
                         ng-model       = "sphereInSearch"
                         ng-options     = "sphere.name  for  sphere in spheres">
-                    <option value="">---Сфера діяльності---</option>
+                       <option value="">---Сфера діяльності---</option>
                 </select>
-                <!--<multi-select ng-model       = "sphereInSearch2"
-                              available      = "spheres"
-                              selected-label = "Current roles"
-                              vailable-label = "Available roles"
-                              display        = "sp"
-                              required-min   = "1"
-                        ></multi-select>
--->
-           </div>
+            </div>
     </div>
 
     <div class="col-md-6">
         <h1>Список організацій</h1>
-
-        {{sphereInSearch}}
-
         <ul class="list-group" ng-repeat="organization in organizations
                                         | filter : orgName
                                         | filter : {$: sphereInSearch.name}
@@ -173,7 +163,7 @@
                             id         = "location_for_orgs"
                             ng-model   = "location_for_orgs"
                             ng-change  = "abs(location_for_orgs)"
-                            ng-options ="location.name  for  location in locations">
+                            ng-options = "location.name  for  location in locations">
                     </select>
                 </div>
                 <div class="form-group">
@@ -208,8 +198,6 @@
                             ng-options     = "phase.name  for  phase in phases">
                     </select>
                 </div>
-
-                {{flag}}
                 <button ng-click="setOrg()" class="btn btn-default">Submit</button>
 
 
@@ -220,9 +208,9 @@
 
 </div>
 
-<script src="/app/js/angular/app2.js"></script>
+<script src="/app/js/angular/mainApp.js"></script>
 <script src="/app/js/angular/service/fixService.js"></script>
-<script src="/app/js/angular/controller/someController.js"></script>
+<script src="/app/js/angular/controller/mainController.js"></script>
 
 </body>
 </html>

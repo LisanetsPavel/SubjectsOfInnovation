@@ -4,8 +4,8 @@
 //
 'use strict';
 (function(){
-    var app = angular.module('AdminModule',[]);
-      app.controller('POSTController',
+    var adminApp = angular.module('AdminModule',[]);
+        adminApp.controller('POSTController',
         ['$scope', '$http', function($scope, $http){
 
             var router = function(array, flag){

@@ -2,7 +2,7 @@
  * Created by pc9 on 20.05.16.
  */
 'use strict';
-app2.controller('FixController', ['$scope', '$http',
+mainApp.controller('initController', ['$scope', '$http',
     function ($scope, $http) {
         $http.get('/getOrgs').success(function (data) {
             $scope.organizations = data;
@@ -23,7 +23,9 @@ app2.controller('FixController', ['$scope', '$http',
             $scope.memberships = data;
         });
     }]);
-app2.controller('OrganizationController',
+
+
+mainApp.controller('OrganizationController',
     ['$scope', '$http', function ($scope, $http) {
         $scope.abs = function(a){
             alert(a)
