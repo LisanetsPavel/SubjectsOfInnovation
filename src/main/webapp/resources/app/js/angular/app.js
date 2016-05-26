@@ -7,32 +7,7 @@
     var app = angular.module('InnoModule', []);
 
 
-    /*app.controller('OrganizationController',
-        ['$scope', '$http', function ($scope, $http) {
-            var obj ={
-                key: 'http://localhost:8080/getOrgs',
-                value: $scope.organizations
-            }
-            $scope.organizations = []
-            var adress = ['http://localhost:8080/getOrgs'];
-             var getTer = function(){
-               $http.get(adress[0]).success(function (data) {
-                  //
 
-                   $scope.organizations.put(data);
-
-                   
-                  //$scope.organizations = data;
-                   obj.value.push(data);
-                    return data;
-               });
-           }
-
-            this.organs = getTer();
-            alert(this.organs)
-
-
-        }]);*/
 
     app.controller('TestController',['$scope','foo2', function($scope,foo2){
         alert('testController')

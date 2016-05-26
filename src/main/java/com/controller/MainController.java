@@ -21,7 +21,15 @@ public class MainController {
     OrganizationService organizationService;
 
 
-    String json = "{\"id\":null,\"fullName\":\"org3\",\"shortName\":null,\"fullNameEng\":null,\"form\":null,\"subordination\":null,\"projects\":null,\"code\":null,\"legalAdress\":null,\"factualAdress\":null,\"phoneNumber\":null,\"site\":null,\"email\":null,\"nameOfDirector\":null,\"founder\":null,\"subject\":{\"id\":null,\"name\":\"sub\",\"url\":null,\"organizations\":null,\"memberships\":null},\"location\":null,\"membership\": {\"name\" : \"memberrr\" },\"scopes\":[{\"id\":null,\"name\":\"sco\",\"organizations\":null}],\"phases\":[{\"id\":null,\"name\":\"pha\",\"organizations\":null}]}";
+    String json = "{\"id\":null,\"fullName\":\"org3\",\"shortName\":null," +
+            "\"fullNameEng\":null,\"form\":null,\"subordination\":null,\"" +
+            "projects\":null,\"code\":null,\"legalAdress\":null,\"factualAdress\":null," +
+            "\"phoneNumber\":null,\"site\":null,\"email\":null,\"nameOfDirector\":null,\"" +
+            "founder\":null,\"" +
+            "subject\":{\"id\":null,\"name\":\"sub\",\"url\":null,\"organizations\":null,\"memberships\":null},\"" +
+            "location\":null,\"membership\": {\"name\" : \"memberrr\" },\"" +
+            "scopes\":[{\"id\":null,\"name\":\"sco\",\"organizations\":null}],\"" +
+            "phases\":[{\"id\":null,\"name\":\"pha\",\"organizations\":null}]}";
 
 
 
@@ -39,12 +47,11 @@ public class MainController {
     }
 
 
-    @RequestMapping(value = "/setOrg", method = RequestMethod.GET)
-    public String setOrg(@RequestParam String name){
-
-        organizationService.setOrganization(json);
-        return "app/index.html";
-
+    @RequestMapping(value = "/setOrg", method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void setOrg(@RequestParam String organization){
+        System.out.println("setOrg Controller");
+        organizationService.setOrganization(organization);
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
