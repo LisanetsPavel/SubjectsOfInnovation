@@ -107,5 +107,13 @@ public class OrganizationService {
 
     }
 
+    public void agree(Integer[] idArr){
+     for (int id : idArr) {
+         Organization organization = organizationDao.getOrganizationById(new Long(id));
+         organization.setAgreed(true);
+         organizationDao.updateOrganization(organization);
+     }
+    }
+
 
 }

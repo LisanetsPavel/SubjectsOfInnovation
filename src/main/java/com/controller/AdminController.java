@@ -75,9 +75,9 @@ public class AdminController {
 
     @RequestMapping(value = "/agree", method =  RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public void agree(@RequestParam Integer id){
+    public void agree(@RequestParam Integer[] idArr){
 
-        organizationService.agree(id);
+        organizationService.agree(idArr);
 
     }
 
