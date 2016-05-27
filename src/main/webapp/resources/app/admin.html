@@ -10,36 +10,64 @@
     <link rel="stylesheet" href="/app/css/style.css">
 </head>
 <body>
-<div class="col-md-6" ng-controller="POSTController">
+<div class = "container" ng-controller="POSTController">
+    <div class="col-md-6" style="height: 1200px" >
 
-    <div ng-model="location"  >
-        <p>Location: <input type="text" name="location" ng-model="location"  class = "input-group"required /></p>
-        <button ng-click="SendData('location')"  class="btn btn-default">Submit</button>
+        <div ng-model="location"  >
+            <p>Місцезнаходження: <input type="text" name="location" ng-model="location"  class = "input-group"required /></p>
+            <button ng-click="SendData('location')"  class="btn btn-default">Додати</button>
+        </div>
+
+        <div>
+            <p>Етап: <input type="text" name="phase" ng-model="phase"  class = "input-group" required /></p>
+            <button ng-click="SendData('phase')"  class="btn btn-default ">Додати</button>
+        </div>
+
+        <div>
+            <p>Ім'я суб'єкта інноваційної інфраструктури: <input type="text" name="subjectName" ng-model="subjectName" class = "input-group" required /></p>
+            <p>Посилання: <input type="text" name="subjectUrl" ng-model="subjectUrl" class = "input-group" required /></p>
+
+            <button ng-click="SendData('subject')" class="btn btn-default ">Додати</button>
+        </div>
+        {{test}}
+        <div>
+            <p>Сфера діяльності: <input type="text" name="sphere" ng-model="sphere" class = "input-group" required /></p>
+            <button ng-click="SendData('sphere')" class="btn btn-default ">Додати</button>
+        </div>
+
+        <div>
+            <p>Інституційна принадлежність: <input type="text" name="membership" ng-model="membership" class = "input-group" required /></p>
+            <button ng-click="SendData('membership')" class="btn btn-default">Додати</button>
+        </div>
     </div>
 
-    <div>
-        <p>Phase: <input type="text" name="phase" ng-model="phase"  class = "input-group" required /></p>
-        <button ng-click="SendData('phase')"  class="btn btn-default ">Submit</button>
+    <div class="col-md-6">
+             <h1>Список організацій</h1>
+        <label ng-repeat="organization in organizations" class="checkbox">
+            <input
+                    type="checkbox"
+                    name="selectedFruits[]"
+                    value="{{organization}}"
+                   ng-checked="selection.indexOf(fruitName) > -1"
+                   ng-click="toggleSelection(organization.id)">
+
+            <p> {{organization.fullName}} </p>
+            </label>
+            {{selection}}
+            <button ng-click="setAgreedOrgs(selection)" class="btn btn-default ">Додати</button>
+
+             <!--<ul class="list-group" ng-repeat="organization in organizations">
+                <li class="list-group-item"> {{organization.fullName}}
+                    <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"/>
+
+                </li>
+            </ul>-->
+
     </div>
 
-    <div>
-        <p>SubjectName: <input type="text" name="subjectName" ng-model="subjectName" class = "input-group" required /></p>
-        <p>SubjectUrl: <input type="text" name="subjectUrl" ng-model="subjectUrl" class = "input-group" required /></p>
 
-        <button ng-click="SendData('subject')" class="btn btn-default ">Submit</button>
-    </div>
-
-    <div>
-        <p>Sphere:</p>
-        <p>ScopeName: <input type="text" name="sphere" ng-model="sphere" class = "input-group" required /></p>
-        <button ng-click="SendData('sphere')" class="btn btn-default ">Submit</button>
-    </div>
-
-    <div>
-        <p>Membership: <input type="text" name="membership" ng-model="membership" class = "input-group" required /></p>
-        <button ng-click="SendData('membership')" class="btn btn-default">Submit</button>
-    </div>
 </div>
+
 
 <script src="/app/js/angular/adminApp.js"></script>
 </body>

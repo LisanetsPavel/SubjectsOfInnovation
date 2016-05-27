@@ -16,7 +16,50 @@
        </bean>
 
 
+       <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+              <!--<property name="driverClassName" value="org.postgresql.Driver" />-->
+              <!--<property name="url" value="jdbc:postgresql://localhost:5432/postgres" />-->
+              <!--<property name="username" value="postgres" />-->
+              <!--<property name="password" value="1111" />-->
+       <!--</bean>-->
 
+
+       <!--<bean id="sessionFactory"-->
+             <!--class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">-->
+              <!--<property name="dataSource" ref="dataSource" />-->
+              <!--<property name="annotatedClasses">-->
+                     <!--<list>-->
+                            <!--<value>com.entity.Organization</value>-->
+                            <!--<value>com.entity.Location</value>-->
+                            <!--<value>com.entity.Phase</value>-->
+                            <!--<value>com.entity.Scope</value>-->
+                            <!--<value>com.entity.Subject</value>-->
+                            <!--<value>com.entity.Membership</value>-->
+                     <!--</list>-->
+              <!--</property>-->
+              <!--<property name="hibernateProperties">-->
+                     <!--<props>-->
+                            <!--<prop key="hibernate.dialect">-->
+                                   <!--org.hibernate.dialect.PostgreSQLDialect-->
+                            <!--</prop>-->
+                            <!--<prop key="hibernate.show_sql">-->
+                                   <!--true-->
+                            <!--</prop>-->
+                            <!--<prop key="hibernate.format_sql">true</prop>-->
+                            <!--<prop key="hibernate.generate_statistics">-->
+                                   <!--true-->
+                            <!--</prop>-->
+                            <!--<prop key="hibernate.hbm2ddl.auto">-->
+                                   <!--update-->
+                            <!--</prop>-->
+                     <!--</props>-->
+              <!--</property>-->
+       <!--</bean>-->
+
+       <!--<bean id="transactionManager"-->
+             <!--class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
+              <!--<property name="sessionFactory" ref="sessionFactory" />-->
+       <!--</bean>-->
 
 
 
@@ -24,6 +67,6 @@
        <mvc:resources mapping="/app/**" location="resources/app/" />
        <mvc:annotation-driven/>
 
-
+       <import resource="database-context.xml" />
 
 </beans>

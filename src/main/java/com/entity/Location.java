@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity
 @Table(name = "location", catalog = "InnovInfr"
        )
-public class Location implements Comparable {
+public class Location  {
 
     private Long id;
     private String name;
@@ -50,19 +50,5 @@ public class Location implements Comparable {
         this.organizations = organizations;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        Location location;
-        if (o instanceof  Location){
-            location = (Location) o;
-        } else{
-            return 1;
-        }
 
-        if (this.name != null && location.getName() != null){
-            return this.name.compareTo(location.getName());
-        }
-
-        return 0;
-    }
 }

@@ -4,16 +4,6 @@
 adminApp.controller('POSTController',
     ['$scope', '$http', function($scope, $http){
 
-        var router = function(array, flag){
-            for(var i = 0; i<array.length; i++ ){
-
-                if (array[i].name == flag){
-                    alert(' i + data' + array[i].name + array[i].data)
-                    return array[i];
-                }
-
-            }
-        }
         $scope.SendData = function(flag){
             var adresses = [
                 {name: 'location',    url: '/setLocation',  data: 'name=' + $scope.location},

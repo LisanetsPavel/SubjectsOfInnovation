@@ -84,7 +84,6 @@ public class OrganizationService {
             organization.setScopes(scopeSet);
         }
 
-
         if (organization.getPhases() != null){
 
             Set<Phase> phaseSet = new HashSet<>();
@@ -96,18 +95,17 @@ public class OrganizationService {
             organization.setPhases(phaseSet);
         }
 
-
-
-
         new OrganizationDaoImpl().setOrganization(organization);
 
         System.out.println(organization.getMembership().getName());
     }
 
-    public static void main(String[] args) {
-
-        new OrganizationService().setOrganization(json);
+    public void agree(int id){
+        Organization organization = organizationDao.getOrganizationById(new Long(id));
+        organization.setAgreed(true);
+        organizationDao.updateOrganization(organization);
 
     }
+
 
 }

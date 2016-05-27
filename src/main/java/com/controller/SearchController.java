@@ -35,6 +35,16 @@ public class SearchController {
     private PhaseService phaseService;
 
 
+    @RequestMapping(value = "/getAgreedOrgs", method = RequestMethod.GET)
+    public String getAgreedOrg() {
+        return organizationService.getAgreedOrganizations();
+    }
+
+    @RequestMapping(value = "/getDisagreedOrgs", method = RequestMethod.GET)
+    public String getDisAgreedOrg() {
+        return organizationService.getDisagreedOrganizations();
+    }
+
     @RequestMapping(value = "/getOrgs", method = RequestMethod.GET)
     public String getAllOrg() {
         return organizationService.getAllOrganizations();

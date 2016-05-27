@@ -15,6 +15,8 @@ public interface OrganizationDao {
 
      void setOrganization(Organization organization);
 
+     void updateOrganization(Organization organization);
+
      Organization getOrganizationById(Long organizationId);
 
      List<Organization> getAllOrganizations();
@@ -32,6 +34,7 @@ public interface OrganizationDao {
      Set<Organization> getOrganizationsByScope(Long scopeId);
 
      Set<Organization> getOrganizationsByPhase(Long phaseId);
+
 
 
 }

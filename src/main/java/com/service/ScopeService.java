@@ -16,9 +16,11 @@ public class ScopeService {
     ScopeDao scopeDao;
 
     public void setScope(String name){
+
         Scope scope = new Scope();
         scope.setName(name);
         scopeDao.setScope(scope);
+
     }
 
     public Scope getSopeByName( String name){

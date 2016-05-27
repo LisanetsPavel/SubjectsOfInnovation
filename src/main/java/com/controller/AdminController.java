@@ -29,11 +29,13 @@ public class AdminController {
     @Autowired
     SubjectService subjectService;
 
+    @Autowired
+    OrganizationService organizationService;
+
     @RequestMapping(value = "/setScope", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void setScope(@RequestParam String name){
 
-        System.out.println("setScope");
         scopeService.setScope(name);
     }
 
@@ -41,9 +43,7 @@ public class AdminController {
     @ResponseStatus(value = HttpStatus.OK)
     public void setLocation(@RequestParam("name") String name){
 
-        System.out.println("setLocation");
         locationService.setLocation(name);
-
 
     }
 
@@ -51,16 +51,14 @@ public class AdminController {
     @ResponseStatus(value = HttpStatus.OK)
     public void setMembership(@RequestParam String name){
 
-        System.out.println("setMembersip");
         membershipService.setMembership(name);
-
 
     }
 
     @RequestMapping(value = "/setPhase", method =  RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void setPhase(@RequestParam String name){
-        System.out.println("setPhase");
+
         phaseService.setPhase(name);
 
     }
@@ -70,9 +68,28 @@ public class AdminController {
     @ResponseStatus(value = HttpStatus.OK)
     public void setSubject(@RequestParam String name,
                            String url){
-       System.out.println("setSubject" + name + "       url " + url);
+
        subjectService.setSubject(name, url);
 
+    }
+
+    /*@RequestMapping(value = "/agree", method =  RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void agree(@RequestParam String id){
+        System.out.println("Agreeeeeee");
+        System.out.println(id);
+        *//*for (int i = 0; i < id.length ; i++) {
+            System.out.println(id[i]);
+        }*//*
+        //organizationService.agree(id);
+
+    }*/
+    @RequestMapping(value = "/agree", method =  RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void agree(@RequestParam Integer  id){
+        System.out.println("Agreeeeeee" );
+        System.out.println(id);
+        organizationService.agree(id);
 
     }
 

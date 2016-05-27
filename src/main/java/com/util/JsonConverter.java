@@ -2,6 +2,7 @@ package com.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -12,15 +13,14 @@ import java.io.IOException;
 @Component
 public class JsonConverter {
 
-
+    private static final Logger logger = Logger.getLogger(JsonConverter.class);
 
     public static String toJSON(Object object)  {
         ObjectMapper mapper = new ObjectMapper();
         try {
             return mapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            //TODO:need logger
+           logger.error(e);
         }
        return null;
     }
@@ -31,8 +31,7 @@ public class JsonConverter {
         try {
             return mapper.readValue(json, obj.getClass());
         } catch (IOException e) {
-            e.printStackTrace();
-            //TODO:need logger
+           logger.error(e);
         }
        return  null;
     }

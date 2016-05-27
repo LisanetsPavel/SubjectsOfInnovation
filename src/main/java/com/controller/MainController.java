@@ -33,19 +33,11 @@ public class MainController {
 
 
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    @ResponseBody
-    public String hello
-            (){
-
-        return organizationService.getDisagreedOrganizations();
-    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
-        return "app/index.html";
+           return "app/index.html";
     }
-
 
     @RequestMapping(value = "/setOrg", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
@@ -63,7 +55,6 @@ public class MainController {
     @ResponseStatus(value = HttpStatus.OK)
     public void setData(@RequestParam(value = "param") String param){
         System.out.println("data   ---- " + param);
-
     }
 
 
