@@ -73,24 +73,12 @@ public class AdminController {
 
     }
 
-    /*@RequestMapping(value = "/agree", method =  RequestMethod.POST)
-    @ResponseStatus(value = HttpStatus.OK)
-    public void agree(@RequestParam String id){
-        System.out.println("Agreeeeeee");
-        System.out.println(id);
-        *//*for (int i = 0; i < id.length ; i++) {
-            System.out.println(id[i]);
-        }*//*
-        //organizationService.agree(id);
-
-    }*/
     @RequestMapping(value = "/agree", method =  RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void agree(@RequestParam Integer  id){
         System.out.println("Agreeeeeee" );
         System.out.println(id);
         organizationService.agree(id);
-
     }
 
 
