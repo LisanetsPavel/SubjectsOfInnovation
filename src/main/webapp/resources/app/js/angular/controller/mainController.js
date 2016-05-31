@@ -12,6 +12,7 @@ mainApp.controller('initController', ['$scope', '$http',
         });
         $http.get('/getPhases').success(function (data) {
             $scope.phases = data;
+
         });
         $http.get('/getSubjects').success(function (data) {
             $scope.subjects = data;
@@ -28,18 +29,19 @@ mainApp.controller('initController', ['$scope', '$http',
 mainApp.controller('OrganizationController',
     ['$scope', '$http', function ($scope, $http) {
         $scope.abs = function(a){
-            alert(a)
+           // alert(a)
             $scope.flag = a;
         }
         var fitter = function   (array){
             var result= []
-            for (var i = 0; i < array.length; i++){
-                result[i] = {
-                    id:array[i].id,
-                    name:array[i].name
+            if(array == undefined){
+                for (var i = 0; i < array.length; i++){
+                    result[i] = {
+                        id:array[i].id,
+                        name:array[i].name
+                    }
                 }
             }
-            alert(result);
             return result;
         }
         $scope.setOrg = function () {
@@ -75,6 +77,7 @@ mainApp.controller('OrganizationController',
                     name: $scope.membership_for_orgs.name
                 }
             };
+
             data.scopes = fitter($scope.sphere_for_orgs);
             data.phases = fitter($scope.phase_for_orgs);
             var config = {
@@ -84,11 +87,12 @@ mainApp.controller('OrganizationController',
             }
 
             var json = 'organization=' + JSON.stringify(data);
-            alert('json   ' + json);
+            alert('json ' + json);
+
             $http.post(url, json, config)
                 .success(function (json, status, headers, config) {
-                    alert('organ data' + json)
-                    data = null;
+                  //  alert('organ data' + json)
+                    //data = null;
                 })
                 .error(function (data, status, headers, config) {
                     alert("failure message: " + JSON.stringify({data: data}));

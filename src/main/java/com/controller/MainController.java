@@ -62,7 +62,11 @@ public class MainController {
     public String img(){
         return "app/index.html";
     }
-
+    @RequestMapping(value = "/error", method = RequestMethod.GET)
+    public String error(){
+        System.out.println("error");
+        return "app/error.html";
+    }
 
 
 }
