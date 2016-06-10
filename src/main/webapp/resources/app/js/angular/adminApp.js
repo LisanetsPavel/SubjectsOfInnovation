@@ -27,7 +27,7 @@
                for(var i = 0; i < $scope.selection.length; i++){
                    $http.post('/agree',('id='+$scope.selection[i]), config)
                        .success(function(data, status, headers, config) {
-                           alert("setAgreedOrgs" + data);
+
                            $scope.selection = [];
                        })
                        .error(function(data, status, headers, config) {
@@ -40,13 +40,13 @@
 
            $http.get('/getDisagreedOrgs').success(function (data) {
                 $scope.organizations = data;
-                alert("succsussss" + data)
+
             });
             var router = function(array, flag){
                 for(var i = 0; i<array.length; i++ ){
 
                     if (array[i].name == flag){
-                        alert(' i + data' + array[i].name + array[i].data)
+
                         return array[i];
                     }
                 }

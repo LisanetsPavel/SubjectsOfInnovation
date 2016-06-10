@@ -16,6 +16,7 @@ public class Phase {
     private String name;
     @JsonIgnore
     private Set<Organization> organizations;
+    private Set<Article> articles;
 
     @Id
     @SequenceGenerator(name = "MySequence", sequenceName = "my_seq", allocationSize=1)
@@ -47,5 +48,14 @@ public class Phase {
     @JsonIgnore
     public void setOrganizations(Set<Organization> organizations) {
         this.organizations = organizations;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "phase")
+    public Set<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(Set<Article> articles) {
+        this.articles = articles;
     }
 }

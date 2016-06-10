@@ -45,7 +45,7 @@ app2.factory('organizationSettingService',['$scope','$http',function($scope,$htt
     alert('json   ' + json);
     $http.post(url, json, config)
         .success(function (json, status, headers, config) {
-            alert('organ data' + json)
+
             data = null;
         })
         .error(function (data, status, headers, config) {

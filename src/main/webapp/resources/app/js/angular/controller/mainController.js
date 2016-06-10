@@ -28,7 +28,7 @@ mainApp.controller('initController', ['$scope', '$http',
 mainApp.controller('OrganizationController',
     ['$scope', '$http', function ($scope, $http) {
         $scope.abs = function(a){
-            alert(a)
+
             $scope.flag = a;
         }
         var fitter = function   (array){
@@ -39,7 +39,7 @@ mainApp.controller('OrganizationController',
                     name:array[i].name
                 }
             }
-            alert(result);
+
             return result;
         }
         $scope.setOrg = function () {
@@ -84,10 +84,10 @@ mainApp.controller('OrganizationController',
             }
 
             var json = 'organization=' + JSON.stringify(data);
-            alert('json   ' + json);
+
             $http.post(url, json, config)
                 .success(function (json, status, headers, config) {
-                    alert('organ data' + json)
+
                     data = null;
                 })
                 .error(function (data, status, headers, config) {

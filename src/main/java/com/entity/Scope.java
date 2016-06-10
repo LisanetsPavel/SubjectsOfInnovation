@@ -16,11 +16,11 @@ public class Scope {
     private String name;
     @JsonIgnore
     private Set<Organization> organizations;
-
+    private Set<Article> articles;
 
     @Id
-    @SequenceGenerator(name = "MySequence", sequenceName = "my_seq", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MySequence")
+    @SequenceGenerator(name = "MySequence", sequenceName = "my_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MySequence")
     @Column(name = "scope_id")
     public Long getId() {
         return id;
@@ -30,7 +30,7 @@ public class Scope {
         this.id = id;
     }
 
-    @Column(name="name")
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -50,12 +50,21 @@ public class Scope {
         this.organizations = organizations;
     }
 
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "scope")
+    public Set<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(Set<Article> articles) {
+        this.articles = articles;
+    }
+
     @Override
     public String toString() {
         return "Scope{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-              //  ", organizations=" + organizations +
                 '}';
     }
 }

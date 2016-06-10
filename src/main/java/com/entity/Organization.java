@@ -10,8 +10,8 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "organization", catalog = "InnovInfr",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"email" , "full_name"}))
-public class Organization  {
+        uniqueConstraints = @UniqueConstraint(columnNames = {"email", "full_name"}))
+public class Organization {
 
     private Long id;
 
@@ -24,12 +24,12 @@ public class Organization  {
     private Integer code;
     private String legalAdress;
     private String factualAdress;
-    private Long phoneNumber ;
+    private Long phoneNumber;
     private String site;
     private String email;
     private String nameOfDirector;
     private String founder;
-    private Boolean agreed ;
+    private Boolean agreed;
 
     private Subject subject;
     private Location location;
@@ -40,8 +40,8 @@ public class Organization  {
     private Set<Phase> phases;
 
     @Id
-    @SequenceGenerator(name = "MySequence", sequenceName = "my_seq", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MySequence")
+    @SequenceGenerator(name = "MySequence", sequenceName = "my_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MySequence")
     @Column(name = "organization_id")
     public Long getId() {
         return id;
@@ -61,7 +61,7 @@ public class Organization  {
         this.agreed = agreed == null ? false : agreed;
     }
 
-    @Column(name = "full_name" , unique = true)
+    @Column(name = "full_name", unique = true)
     public String getFullName() {
         return fullName;
     }
@@ -160,7 +160,7 @@ public class Organization  {
         this.site = site;
     }
 
-    @Column(name = "email" , unique = true)
+    @Column(name = "email", unique = true)
     public String getEmail() {
         return email;
     }
@@ -221,7 +221,7 @@ public class Organization  {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "organization_scope", catalog = "InnovInfr", joinColumns = {
-            @JoinColumn(name = "organization_id", nullable =  false)
+            @JoinColumn(name = "organization_id", nullable = false)
     }, inverseJoinColumns = {@JoinColumn(name = "scope_id", nullable = false)})
     public Set<Scope> getScopes() {
         return scopes;
@@ -233,7 +233,7 @@ public class Organization  {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "organization_phase", catalog = "InnovInfr", joinColumns = {
-            @JoinColumn(name = "organization_id", nullable =  false)
+            @JoinColumn(name = "organization_id", nullable = false)
     }, inverseJoinColumns = {@JoinColumn(name = "phase_id", nullable = false)})
     public Set<Phase> getPhases() {
         return phases;
@@ -262,14 +262,8 @@ public class Organization  {
                 ", email='" + email + '\'' +
                 ", nameOfDirector='" + nameOfDirector + '\'' +
                 ", founder='" + founder + '\'' +
-//                ", subject=" + subject +
-//                ", location=" + location +
                 ", membership=" + membership +
-
-
                 '}';
     }
-
-
 
 }

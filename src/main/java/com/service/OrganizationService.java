@@ -38,81 +38,81 @@ public class OrganizationService {
 
     static String json = "{\"id\":null,\"fullName\":\"org\",\"shortName\":null,\"fullNameEng\":null,\"form\":null,\"subordination\":null,\"projects\":null,\"code\":null,\"legalAdress\":null,\"factualAdress\":null,\"phoneNumber\":null,\"site\":null,\"email\":null,\"nameOfDirector\":null,\"founder\":null,\"subject\":{\"id\":null,\"name\":\"sub\",\"url\":null,\"organizations\":null,\"memberships\":null},\"location\":null,\"membership\": {\"name\" : \"memberrr\" },\"scopes\":[{\"id\":null,\"name\":\"sco\",\"organizations\":null}],\"phases\":[{\"id\":null,\"name\":\"pha\",\"organizations\":null}]}";
 
-    public String getAllOrganizations(){
+    public String getAllOrganizations() {
 
-            return JsonConverter.toJSON(organizationDao.getAllOrganizations());
+        return JsonConverter.toJSON(organizationDao.getAllOrganizations());
 
     }
 
-    public String getAgreedOrganizations(){
+    public String getAgreedOrganizations() {
 
         return JsonConverter.toJSON(organizationDao.getAgreedOrganizations());
 
     }
 
-    public String getDisagreedOrganizations(){
+    public String getDisagreedOrganizations() {
 
         return JsonConverter.toJSON(organizationDao.getDisagreedOrganizations());
 
     }
 
-    public void setOrganization(String organizationJson){
+    public void setOrganization(String organizationJson) {
         Organization organization = (Organization) JsonConverter.toJavaObject(organizationJson, new Organization());
 
-        if (organization.getLocation() != null){
+        if (organization.getLocation() != null) {
 
-             organization.setLocation(locationService.getLocationByName(organization.getLocation().getName()));
+            organization.setLocation(locationService.getLocationByName(organization.getLocation().getName()));
         }
 
-        if (organization.getSubject() != null){
+        if (organization.getSubject() != null) {
             System.out.println(subjectService);
             organization.setSubject(subjectService.getSubjectByName(organization.getSubject().getName()));
         }
 
-        if (organization.getMembership() != null){
-           organization.setMembership( membershipService.getMembershipByName(organization.getMembership().getName()));
+        if (organization.getMembership() != null) {
+            organization.setMembership(membershipService.getMembershipByName(organization.getMembership().getName()));
         }
 
-        if (organization.getScopes() != null){
+        if (organization.getScopes() != null) {
 
             Set<Scope> scopeSet = new HashSet<>();
 
-            for (Scope scope : organization.getScopes()){
+            for (Scope scope : organization.getScopes()) {
                 scopeSet.add(scopeService.getSopeByName(scope.getName()));
             }
 
             organization.setScopes(scopeSet);
         }
 
-        if (organization.getPhases() != null){
+        if (organization.getPhases() != null) {
 
             Set<Phase> phaseSet = new HashSet<>();
 
-            for (Phase phase : organization.getPhases()){
+            for (Phase phase : organization.getPhases()) {
                 phaseSet.add(phaseService.getPhaseByName(phase.getName()));
             }
 
             organization.setPhases(phaseSet);
         }
 
-        new OrganizationDaoImpl().setOrganization(organization);
+        organizationDao.setOrganization(organization);
 
         System.out.println(organization.getMembership().getName());
     }
 
-    public void agree(int id){
+    public void agree(int id) {
         Organization organization = organizationDao.getOrganizationById(new Long(id));
         organization.setAgreed(true);
         organizationDao.updateOrganization(organization);
 
     }
 
-    public void agree(Integer[] idArr){
-     for (int id : idArr) {
-         Organization organization = organizationDao.getOrganizationById(new Long(id));
-         organization.setAgreed(true);
-         organizationDao.updateOrganization(organization);
-     }
+    public void agree(Integer[] idArr) {
+        for (int id : idArr) {
+            Organization organization = organizationDao.getOrganizationById(new Long(id));
+            organization.setAgreed(true);
+            organizationDao.updateOrganization(organization);
+        }
     }
 
 

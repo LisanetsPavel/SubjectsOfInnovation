@@ -34,14 +34,14 @@ public class AdminController {
 
     @RequestMapping(value = "/setScope", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public void setScope(@RequestParam String name){
+    public void setScope(@RequestParam String name) {
 
         scopeService.setScope(name);
     }
 
     @RequestMapping(value = "/setLocation", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public void setLocation(@RequestParam("name") String name){
+    public void setLocation(@RequestParam("name") String name) {
 
         locationService.setLocation(name);
 
@@ -49,37 +49,53 @@ public class AdminController {
 
     @RequestMapping(value = "/setMembership", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public void setMembership(@RequestParam String name){
+    public void setMembership(@RequestParam String name) {
 
         membershipService.setMembership(name);
 
     }
 
-    @RequestMapping(value = "/setPhase", method =  RequestMethod.POST)
+    @RequestMapping(value = "/setPhase", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public void setPhase(@RequestParam String name){
+    public void setPhase(@RequestParam String name) {
 
         phaseService.setPhase(name);
 
     }
 
 
-    @RequestMapping(value = "/setSubject", method =  RequestMethod.POST)
+    @RequestMapping(value = "/setSubject", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void setSubject(@RequestParam String name,
-                           String url){
+                           String url) {
 
-       subjectService.setSubject(name, url);
+        subjectService.setSubject(name, url);
 
     }
 
-    @RequestMapping(value = "/agree", method =  RequestMethod.POST)
+    @RequestMapping(value = "/agree", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public void agree(@RequestParam Integer  id){
-        System.out.println("Agreeeeeee" );
+    public void agree(@RequestParam Integer id) {
+        System.out.println("Agreeeeeee");
         System.out.println(id);
         organizationService.agree(id);
     }
 
+    @RequestMapping(value = "/setArticleSub", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void setArticleSub(Long id, String link) {
+        subjectService.setArticle(id, link);
+    }
 
+    @RequestMapping(value = "/setArticleSco", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void setArticleSco(Long id, String link) {
+        scopeService.setArticle(id, link);
+    }
+
+    @RequestMapping(value = "/setArticlePha", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void setArticlePha(Long id, String link) {
+        phaseService.setArticle(id, link);
+    }
 }

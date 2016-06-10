@@ -35,6 +35,4 @@ public interface OrganizationDao {
 
      Set<Organization> getOrganizationsByPhase(Long phaseId);
 
-
-
 }

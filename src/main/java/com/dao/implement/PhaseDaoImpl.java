@@ -39,6 +39,7 @@ public class PhaseDaoImpl extends GenericDao implements PhaseDao {
 
     @Override
     public List<Phase> getAllPhase() {
+
         return getAll(Phase.class);
     }
 

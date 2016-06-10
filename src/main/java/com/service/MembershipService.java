@@ -15,24 +15,24 @@ public class MembershipService {
     @Autowired
     MembershipDao membershipDao;
 
-    public void setMembership(String name){
+    public void setMembership(String name) {
         Membership membership = new Membership();
         membership.setName(name);
         membershipDao.setMembership(membership);
 
     }
 
-    public void setMembership(Membership membership){
+    public void setMembership(Membership membership) {
 
         membershipDao.setMembership(membership);
 
     }
 
-    public Membership getMembershipByName(String name){
-        return  membershipDao.getMembershipByName(name);
+    public Membership getMembershipByName(String name) {
+        return membershipDao.getMembershipByName(name);
     }
 
-    public String getAllMemberships(){
+    public String getAllMemberships() {
         return JsonConverter.toJSON(membershipDao.getAllMemberships());
     }
 }

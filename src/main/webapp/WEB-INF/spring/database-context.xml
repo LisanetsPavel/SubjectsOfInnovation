@@ -6,10 +6,23 @@
 
 
        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-              <property name="driverClassName" value="org.postgresql.Driver" />
-              <property name="url" value="jdbc:postgresql://localhost:5432/postgres" />
-              <property name="username" value="postgres" />
-              <property name="password" value="1111" />
+
+              <property name="driverClassName">
+                     <value>${db.driverClassName}</value>
+              </property>
+
+              <property name="url">
+                     <value>${db.url}</value>
+              </property>
+
+              <property name="username">
+                     <value>${db.username}</value>
+              </property>
+
+              <property name="password">
+                     <value>${db.password}</value>
+              </property>
+
        </bean>
 
 
@@ -24,6 +37,7 @@
                             <value>com.entity.Scope</value>
                             <value>com.entity.Subject</value>
                             <value>com.entity.Membership</value>
+                            <value>com.entity.Article</value>
                      </list>
               </property>
               <property name="hibernateProperties">

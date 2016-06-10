@@ -15,21 +15,21 @@ public class LocationService {
     @Autowired
     LocationDao locationDao;
 
-    public void setLocation(String name){
+    public void setLocation(String name) {
         Location location = new Location();
         location.setName(name);
         locationDao.setLocation(location);
     }
 
-    public void setLocation(Location location){
-         locationDao.setLocation(location);
+    public void setLocation(Location location) {
+        locationDao.setLocation(location);
     }
 
-    public Location getLocationByName(String name){
+    public Location getLocationByName(String name) {
         return locationDao.getLocationByName(name);
     }
 
-    public String getAllLocations(){
+    public String getAllLocations() {
         return JsonConverter.toJSON(locationDao.getAllLocations());
     }
 }

@@ -15,25 +15,25 @@ public class JsonConverter {
 
     private static final Logger logger = Logger.getLogger(JsonConverter.class);
 
-    public static String toJSON(Object object)  {
+    public static String toJSON(Object object) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             return mapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
-           logger.error(e);
+            logger.error(e);
         }
-       return null;
+        return null;
     }
 
-    public static Object toJavaObject(String json, Object obj)  {
+    public static Object toJavaObject(String json, Object obj) {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
             return mapper.readValue(json, obj.getClass());
         } catch (IOException e) {
-           logger.error(e);
+            logger.error(e);
         }
-       return  null;
+        return null;
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "subject", catalog = "InnovInfr")
-public class Subject  {
+public class Subject {
 
     private Long id;
     private String name;
@@ -18,10 +18,11 @@ public class Subject  {
     @JsonIgnore
     private Set<Organization> organizations;
     private Set<Membership> memberships;
+    private Set<Article> articles;
 
     @Id
-    @SequenceGenerator(name = "MySequence", sequenceName = "my_seq", allocationSize=1 )
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MySequence")
+    @SequenceGenerator(name = "MySequence", sequenceName = "my_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MySequence")
     @Column(name = "subject_id")
     public Long getId() {
         return id;
@@ -70,7 +71,14 @@ public class Subject  {
         this.memberships = memberships;
     }
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "subject")
+    public Set<Article> getArticles() {
+        return articles;
+    }
 
+    public void setArticles(Set<Article> articles) {
+        this.articles = articles;
+    }
 
     @Override
     public String toString() {
@@ -78,8 +86,6 @@ public class Subject  {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", url='" + url + '\'' +
-                /*", organizations=" + organizations +
-                ", memberships=" + memberships +*/
                 '}';
     }
 }
