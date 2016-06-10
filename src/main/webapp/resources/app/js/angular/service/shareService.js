@@ -9,7 +9,6 @@ mainApp.service('shareService', function(){
             return objectValue;
         },
         setOrg: function (value) {
-            alert('organization' + value)
             objectValue = value;
         }
     }

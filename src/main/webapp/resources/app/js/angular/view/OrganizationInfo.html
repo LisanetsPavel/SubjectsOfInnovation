@@ -1,8 +1,7 @@
 <div>
     <h1>Повнний опис організації</h1>
           </div>
-        <li class="list-group-item"><h5>Повна назва:</h5> <br/>
-            {{organization}}</li>
+
         <li class="list-group-item"><h5>Повна назва:</h5> <br/>
             {{organization.fullName}}</li>
         <li class="list-group-item"><h5>Скорочена назва:</h5> <br/>
@@ -38,16 +37,21 @@
         <li class="list-group-item"> <h5>Інституційна принадлежність:</h5><br/>
             {{organization.membership.name}}</li>
         <li class="list-group-item"> <h5>Сфера діяльності:</h5><br/>
-            {{spheres}}
             <ul>
+
+
+
                 <li ng-repeat = "sphere in  organization.spheres ">{{sphere.name}} </li>
-            </ul>
+         </ul>
         </li>
-        <li class="list-group-item"> <h5>Сфера діяльності:</h5><br/>
-            <ul>
-                <li ng-repeat = "phase in organization.phases ">  {{phase.name}} </li>
-            </ul>
+            <li class="list-group-item"> <h5>Сфера діяльності:</h5><br/>
+                <ul>
+                    <li ng-repeat = "phase in organization.phases ">  {{phase.name}} </li>
+                </ul>
+            </li>
         </li>
+
+
 
 
 
