@@ -42,7 +42,7 @@ public class AdminController {
     @RequestMapping(value = "/setLocation", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void setLocation(@RequestParam("name") String name){
-
+        System.out.println("setLOcation");
         locationService.setLocation(name);
 
     }

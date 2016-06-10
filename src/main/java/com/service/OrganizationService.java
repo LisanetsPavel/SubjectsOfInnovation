@@ -95,9 +95,9 @@ public class OrganizationService {
             organization.setPhases(phaseSet);
         }
 
-        new OrganizationDaoImpl().setOrganization(organization);
+       organizationDao.setOrganization(organization);
 
-        System.out.println(organization.getMembership().getName());
+
     }
 
     public void agree(int id){

@@ -5,212 +5,38 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
     <link rel="stylesheet" href="/app/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/app/css/style.css">
 </head>
 
-<body ng-controller="initController">
-    <div class="container">
-
-        <!--SEARCH FIELDS-->
-        <div class="col-md-6" >
-            <h1>Критеріі пошуку</h1>
-        <div class="input-group" id="search">
-            <label for="search_by_name">Ім'я організаціі</label>
-            <input id = "search_by_name"type="text" class="form-control" ng-model="orgName" placeholder="Ім'я організаціі...">
+<body>
+    <div class="container" ng-controller = "indexController">
+        <div >
+            <button type="button" class="btn btn-primary" ng-click = "goToMainPage()">Знайти організацію</button>
+            <button type="button" class="btn btn-success" ng-click = "goToAddOrg()">Додати організацію</button>
+            <!--<button type="button" class="btn btn-info"    ng-click = "goToStupidInfo() ">INFO</button>-->
+            <button type="button" class="btn btn-success" ng-click = "goToAdminPage()">Адмінпанель</button>
+            <div ng-view ></div>
         </div>
 
-            <div class="form-group">
-                <label for="sel2">Інституційна принадлежність</label>
-                <select class      = "form-control"
-                        name       = "membershipInSearch"
-                        id         = "sel2"
-                        ng-model   ="membershipInSearch"
-                        ng-options ="membership.name  for  membership in memberships">
-                        <option value="">---Інституційна принадлежність---</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="sel4">Місцезнаходження</label>
-                <select class      ="form-control"
-                        name="locationInSearch"
-                        id         = "sel4"
-                        ng-model   = "locationInSearch"
-                        ng-options = "location.name  for  location in locations">
-                        <option value="">---Місцезнаходження---</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="sel5">Суб'єкт інноваційної інфраструктури</label>
-                <select class      = "form-control"
-                        name       = "subjectInSearch"
-                        id         = "sel5"
-                        ng-model   = "subjectInSearch"
-                        ng-options = "subject.name  for  subject in subjects">
-                        <option value="">---Суб'єкт інноваційної інфраструктури---</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="sel3">Етап</label>
-                <select          class = "form-control"
-                        name           = "phaseInSearch"
-                        id             = "sel3"
-                        ng-model       = "phaseInSearch"
-                        ng-options     = "phase.name  for  phase in phases">
-                        <option value="">---Етап---</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="sel1">Сфера діяльності</label>
-                <select class = "form-control"
-                        name           = "sphereInSearch"
-                        id             = "sel1"
-                        ng-model       = "sphereInSearch"
-                        ng-options     = "sphere.name  for  sphere in spheres">
-                       <option value="">---Сфера діяльності---</option>
-                </select>
-            </div>
-    </div>
-
-    <div class="col-md-6">
-        <h1>Список організацій</h1>
-        <ul class="list-group" ng-repeat="organization in organizations
-                                        | filter : orgName
-                                        | filter : {$: sphereInSearch.name}
-                                        | filter : {$: locationInSearch.name}
-                                        | filter : {$: membershipInSearch.name}
-                                        | filter : {$: phaseInSearch.name}
-                                        | filter : {$: subjectInSearch.name} ">
-            <li class="list-group-item"> {{organization.fullName}}</li>
-        </ul>
-    </div>
-
-    <div class="col-md-6" ng-controller="OrganizationController">
-        <div class="container">
-            <h2> Додати нову организацію</h2>
-            <form role="form">
-                <div class="form-group">
-                    <label for="full_name">Полное название организации:</label>
-                    <input type="text" class="form-control" id="full_name" ng-model="full_name">
-                </div>
-                <div class="form-group">
-                    <label for="short_name">Сокращенное название организации:</label>
-                    <input type="text" class="form-control" id="short_name" ng-model="short_name">
-                </div>
-                <div class="form-group">
-                    <label for="full_name_eng">Полное имя организации на английском:</label>
-                    <input type="text" class="form-control" id="full_name_eng" ng-model="full_name_eng">
-                </div>
-                <div class="form-group">
-                    <label for="form">Форма власності:</label>
-                    <input type="text" class="form-control" id="form" ng-model="form">
-                </div>
-                <div class="form-group">
-                    <label for="subordination">Підпорядкування:</label>
-                    <input type="text" class="form-control" id="subordination" ng-model="subordination">
-                </div>
-                <div class="form-group">
-                    <label for="projects">Проекти:</label>
-                    <input type="text" class="form-control" id="projects" ng-model="projects">
-                </div>
-                <div class="form-group">
-                    <label for="code">Код ЄДРПО:</label>
-                    <input type="text" class="form-control" id="code" ng-model="code">
-                </div>
-                <div class="form-group">
-                    <label for="legal_adress">Юридична адресса:</label>
-                    <input type="text" class="form-control" id="legal_adress" ng-model="legal_adress">
-                </div>
-                <div class="form-group">
-                    <label for="factual_adress">Фактична адреса:</label>
-                    <input type="text" class="form-control" id="factual_adress" ng-model="factual_adress">
-                </div>
-                <div class="form-group">
-                    <label for="phone_number">Телефонний номер:</label>
-                    <input type="text" class="form-control" id="phone_number" ng-model="phone_number">
-                </div>
-                <div class="form-group">
-                    <label for="site">Сайт:</label>
-                    <input type="text" class="form-control" id="site" ng-model="site">
-                </div>
-                <div class="form-group">
-                    <label for="email">Електронна пошта:</label>
-                    <input type="text" class="form-control" id="email" ng-model="email">
-                </div>
-                <div class="form-group">
-                    <label for="name_of_director">Директор:</label>
-                    <input type="text" class="form-control" id="name_of_director" ng-model="name_of_director">
-                </div>
-                <div class="form-group">
-                    <label for="name_of_foundeer">Засновник:</label>
-                    <input type="text" class="form-control" id="name_of_foundeer" ng-model="name_of_foundeer">
-                </div>
-
-                <div class="form-group">
-                    <label for = "subject_for_orgs">Суб'єкт інноваційної інфраструктури</label>
-                    <select class      = "form-control"
-                            name       = "subject_for_orgs"
-                            id         = "subject_for_orgs"
-                            ng-model   = "subject_for_orgs"
-                            ng-options ="subject.name  for  subject in subjects">
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for = "location_for_orgs">Місцезнаходження</label>
-                    <select class      = "form-control"
-                            name       = "location_for_orgs"
-                            id         = "location_for_orgs"
-                            ng-model   = "location_for_orgs"
-                            ng-change  = "abs(location_for_orgs)"
-                            ng-options = "location.name  for  location in locations">
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for = "membership_for_orgs">Інституційна принадлежність</label>
-                    <select class      = "form-control"
-                            name       = "membership_for_orgs"
-                            id         = "membership_for_orgs"
-                            ng-model   = "membership_for_orgs"
-                            ng-change  = "abs(membership_for_orgs)"
-                            ng-options = "membership.name  for  membership in memberships">
-                    </select>
-                </div>
-
-                <h2>Multi</h2>
-                <div  class="form-group">
-                    <label for = "sphere_for_orgs">Сфера діяльності</label>
-                    <select multiple class = "form-control"
-                            name           = "sphere_for_orgs"
-                            id             = "sphere_for_orgs"
-                            ng-model       = "sphere_for_orgs"
-                            ng-change      = "abs(sphere_for_orgs)"
-                            ng-options     = "sphere.name  for  sphere in spheres">
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for = "phase_for_orgs">Етап</label>
-                    <select multiple class = "form-control"
-                            name           = "phase_for_orgs"
-                            id             = "phase_for_orgs"
-                            ng-model       = "phase_for_orgs"
-                            ng-change      = "abs(phase_for_orgs)"
-                            ng-options     = "phase.name  for  phase in phases">
-                    </select>
-                </div>
-                <button ng-click="setOrg()" class="btn btn-default">Submit</button>
 
 
-            </form>
-        </div>
     </div>
 
 
 </div>
 
-<script src="/app/js/angular/mainApp.js"></script>
-<script src="/app/js/angular/service/fixService.js"></script>
-<script src="/app/js/angular/controller/mainController.js"></script>
+
+    <script src="/app/js/angular/mainApp.js"></script>
+    <script src="/app/js/angular/controller/searchController.js"></script>
+    <script src="/app/js/angular/service/shareService.js"></script>
+    <script src="/app/js/angular/controller/fullOrganizationInfoController.js"></script>
+    <script src="/app/js/angular/controller/addOrganizationController.js"></script>
+    <script src="/app/js/angular/controller/indexController.js"></script>
+
+
 
 </body>
 </html>

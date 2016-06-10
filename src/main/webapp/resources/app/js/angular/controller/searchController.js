@@ -4,11 +4,13 @@
 'use strict';
 
 mainApp.controller('searchController', ['$scope', '$http','$location'
-                                      ,'$rootScope','shareServise',
+                                      ,'$rootScope','shareService',
                                       function ($scope, $http,$location
-                                                ,$rootScope,shareServise) {
-        $scope.goToOrg = function(organization) {
-                shareServise.setOrg(organization)
+                                                ,$rootScope,shareService) {
+
+        $scope.goToOrgInfo = function(organization) {
+
+                shareService.setOrg(organization)
                 $location.url('/organizationsInfo');
             };
 }]);

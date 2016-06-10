@@ -1,10 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div >
+    <h1>Повнний опис організації</h1>
 
-</body>
-</html>
+</div>
+
+
+<li class="list-group-item"><h5>Повна назва:</h5> <br/>
+    {{organization.fullName}}</li>
+<li class="list-group-item"><h5>Скорочена назва:</h5> <br/>
+    {{organization.shortName}}</li>
+<li class="list-group-item"><h5>Повна назва англійською:</h5> <br/>
+    {{organization.fullNameEng}}</li>
+<li class="list-group-item"><h5>Форма власності:</h5><br/>
+    {{organization.form}}</li>
+<li class="list-group-item"> <h5>Підпорядкування:</h5><br/>
+    {{organization.subordination}}</li>
+<li class="list-group-item"> <h5>Проекти:</h5><br/>
+    {{organization.projects}}</li>
+<li class="list-group-item"> <h5>Код ЄДРПО:</h5><br/>
+    {{organization.code}}</li>
+<li class="list-group-item"> <h5>Юридична адресса:</h5><br/>
+    {{organization.legalAdress}}</li>
+<li class="list-group-item"> <h5>Фактична адреса:</h5><br/>
+    {{organization.factualAdress}}</li>
+<li class="list-group-item"> <h5>Телефонний номер:</h5><br/>
+    {{organization.phoneNumber}}</li>
+<li class="list-group-item"> <h5>Сайт:</h5><br/>
+    {{organization.site}}</li>
+<li class="list-group-item"> <h5>Електронна пошта:</h5><br/>
+    {{organization.email}}</li>
+<li class="list-group-item"> <h5>Директор:</h5><br/>
+    {{organization.nameOfDirector}}</li>
+<li class="list-group-item"> <h5>Засновник:</h5><br/>
+    {{organization.founder}}</li>
+<li class="list-group-item"> <h5>Суб'єкт інноваційної інфраструктури:</h5><br/>
+    {{organization.subject.name}}</li>
+<li class="list-group-item"> <h5>Місцезнаходження:</h5><br/>
+    {{organization.location.name}}</li>
+<li class="list-group-item"> <h5>Інституційна принадлежність:</h5><br/>
+    {{organization.membership.name}}</li>
+<li class="list-group-item"> <h5>Сфера діяльності:</h5><br/>
+    {{spheres}}
+    <ul>
+        <li ng-repeat = "sphere in  organization.spheres ">{{sphere.name}} </li>
+    </ul>
+</li>
+<li class="list-group-item"> <h5>Сфера діяльності:</h5><br/>
+    <ul>
+        <li ng-repeat = "phase in organization.phases ">  {{phase.name}} </li>
+    </ul>
+</li>
+
+
+
+</ul>
+<div>
+    <button ng-click="setAgreedOrg(organization)" class="btn btn-default ">Додати</button>
+</div>
+
+</div>

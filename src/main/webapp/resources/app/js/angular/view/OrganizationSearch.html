@@ -1,71 +1,86 @@
-<div class="col-md-6" >
-    <h1>Критеріі пошуку</h1>
-    <div class="input-group" id="search">
-        <label for="search_by_name">Ім'я організаціі</label>
-        <input id = "search_by_name"type="text" class="form-control" ng-model="orgName" placeholder="Ім'я організаціі...">
+
+<div class="container" ng-controller = "searchController">
+    <div class="col-md-6" >
+        <h1>Критеріі пошуку</h1>
+        <div class="input-group" id="search">
+            <label for="search_by_name">Ім'я організаціі</label>
+            <input id = "search_by_name"type="text" class="form-control" ng-model="orgName" placeholder="Ім'я організаціі...">
+        </div>
+
+        <div class="form-group">
+            <label for="sel2">Інституційна принадлежність</label>
+            <select class      = "form-control"
+                    name       = "membershipInSearch"
+                    id         = "sel2"
+                    ng-model   ="membershipInSearch"
+                    ng-options ="membership.name  for  membership in memberships">
+                <option value="">---Інституційна принадлежність---</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="sel4">Місцезнаходження</label>
+            <select class      ="form-control"
+                    name="locationInSearch"
+                    id         = "sel4"
+                    ng-model   = "locationInSearch"
+                    ng-options = "location.name  for  location in locations">
+                <option value="">---Місцезнаходження---</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="sel5">Суб'єкт інноваційної інфраструктури</label>
+            <select class      = "form-control"
+                    name       = "subjectInSearch"
+                    id         = "sel5"
+                    ng-model   = "subjectInSearch"
+                    ng-options = "subject.name  for  subject in subjects">
+                <option value="">---Суб'єкт інноваційної інфраструктури---</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="sel3">Етап</label>
+            <select          class = "form-control"
+                             name           = "phaseInSearch"
+                             id             = "sel3"
+                             ng-model       = "phaseInSearch"
+                             ng-options     = "phase.name  for  phase in phases">
+                <option value="">---Етап---</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="sel1">Сфера діяльності</label>
+            <select class = "form-control"
+                    name           = "sphereInSearch"
+                    id             = "sel1"
+                    ng-model       = "sphereInSearch"
+                    ng-options     = "sphere.name  for  sphere in spheres">
+                <option value="">---Сфера діяльності---</option>
+            </select>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label for="sel2">Інституційна принадлежність</label>
-        <select class      = "form-control"
-                name       = "membershipInSearch"
-                id         = "sel2"
-                ng-model   ="membershipInSearch"
-                ng-options ="membership.name  for  membership in memberships">
-            <option value="">---Інституційна принадлежність---</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="sel4">Місцезнаходження</label>
-        <select class      ="form-control"
-                name="locationInSearch"
-                id         = "sel4"
-                ng-model   = "locationInSearch"
-                ng-options = "location.name  for  location in locations">
-            <option value="">---Місцезнаходження---</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="sel5">Суб'єкт інноваційної інфраструктури</label>
-        <select class      = "form-control"
-                name       = "subjectInSearch"
-                id         = "sel5"
-                ng-model   = "subjectInSearch"
-                ng-options = "subject.name  for  subject in subjects">
-            <option value="">---Суб'єкт інноваційної інфраструктури---</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="sel3">Етап</label>
-        <select          class = "form-control"
-                         name           = "phaseInSearch"
-                         id             = "sel3"
-                         ng-model       = "phaseInSearch"
-                         ng-options     = "phase.name  for  phase in phases">
-            <option value="">---Етап---</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="sel1">Сфера діяльності</label>
-        <select class = "form-control"
-                name           = "sphereInSearch"
-                id             = "sel1"
-                ng-model       = "sphereInSearch"
-                ng-options     = "sphere.name  for  sphere in spheres">
-            <option value="">---Сфера діяльності---</option>
-        </select>
-    </div>
-</div>
-
-<div class="col-md-6">
-    <h1>Список організацій</h1>
-    <ul class="list-group" ng-repeat="organization in organizations
+    <div class="col-md-6">
+        <h1>Список організацій</h1>
+        <ul class="list-group" ng-repeat="organization in organizations
                                         | filter : orgName
                                         | filter : {$: sphereInSearch.name}
                                         | filter : {$: locationInSearch.name}
                                         | filter : {$: membershipInSearch.name}
                                         | filter : {$: phaseInSearch.name}
                                         | filter : {$: subjectInSearch.name} ">
-        <li class="list-group-item"> {{organization.fullName}}</li>
-    </ul>
+            <li class="list-group-item" ng-click = "goToOrgInfo(organization)">
+                {{organization.fullName}} <br/>
+                {{organization.shortName}}<br/>
+                {{organization.location}}
+                {{organization.location}}
+
+
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
 </div>
