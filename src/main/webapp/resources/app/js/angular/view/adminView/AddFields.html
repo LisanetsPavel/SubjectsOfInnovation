@@ -1,0 +1,30 @@
+<div class = "container">
+    <div ng-model="location"  >
+        <p>Місцезнаходження: <input type="text" name="location" ng-model="location"  class = "input-group"required /></p>
+        <button ng-click="SendData('location')"  class="btn btn-default">Додати</button>
+    </div>
+
+    <div>
+        <p>Етап: <input type="text" name="phase" ng-model="phase"  class = "input-group" required /></p>
+        <button ng-click="SendData('phase')"  class="btn btn-default ">Додати</button>
+    </div>
+
+    <div>
+        <p>Ім'я суб'єкта інноваційної інфраструктури: <input type="text" name="subjectName" ng-model="subjectName" class = "input-group" required /></p>
+        <p>Посилання: <input type="text" name="subjectUrl" ng-model="subjectUrl" class = "input-group" required /></p>
+
+        <button ng-click="SendData('subject')" class="btn btn-default ">Додати</button>
+    </div>
+    <div>
+        <p>Сфера діяльності: <input type="text" name="sphere" ng-model="sphere" class = "input-group" required /></p>
+        <button ng-click="SendData('sphere')" class="btn btn-default ">Додати</button>
+    </div>
+
+    <div>
+        <p>Інституційна принадлежність: <input type="text" name="membership" ng-model="membership" class = "input-group" required /></p>
+        <button ng-click="SendData('membership')" class="btn btn-default">Додати</button>
+    </div>
+</div>
+
+
+</div>
