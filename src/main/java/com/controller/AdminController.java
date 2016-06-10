@@ -41,6 +41,7 @@ public class AdminController {
 
     @RequestMapping(value = "/setLocation", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
+
     public void setLocation(@RequestParam("name") String name) {
 
         locationService.setLocation(name);

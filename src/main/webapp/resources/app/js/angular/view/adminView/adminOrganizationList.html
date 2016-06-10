@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div class = "container" ng-controller = "listDisagreeController">
+    <div class="col-md-6">
+        <h1>Список організацій</h1>
+        <label ng-repeat="organization in organizations" class="checkbox">
+            <input
+                    type="checkbox"
+                    value="{{organization}}"
+                    ng-checked="selection.indexOf(fruitName) > -1"
+                    ng-click="toggleSelection(organization.id)">
 
-</body>
-</html>
+           <!-- <p ng-click>  </p>-->
+            <li ng-click = "goToOrgInfo(organization)"> {{organization.fullName}} </li>
+        </label>
+        <button ng-click="setAgreedOrgs(selection)" class="btn btn-default ">Додати</button>
+
+        <!--<ul class="list-group" ng-repeat="organization in organizations">
+           <li class="list-group-item"> {{organization.fullName}}
+               <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"/>
+
+           </li>
+       </ul>-->
+
+</div>
+
+</div>

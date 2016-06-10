@@ -37,6 +37,9 @@ public class SearchController {
 
     @RequestMapping(value = "/getAgreedOrgs", method = RequestMethod.GET)
     public String getAgreedOrg() {
+
+        System.out.println("---------------------------------------------------------------------------------------------------------");
+
         return organizationService.getAgreedOrganizations();
     }
 
