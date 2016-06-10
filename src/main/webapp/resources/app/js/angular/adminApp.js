@@ -31,7 +31,7 @@
                            $scope.selection = [];
                        })
                        .error(function(data, status, headers, config) {
-                           alert( "failure message: " + JSON.stringify({data: data}));
+                           //alert( "failure message: " + JSON.stringify({data: data}));
                        });
                }
                 $scope.selection = [];
